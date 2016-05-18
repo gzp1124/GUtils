@@ -1,12 +1,10 @@
 package com.example.gzp1124.gutils.utils;
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -44,12 +42,12 @@ public class GTimeTaskUtil {
                 getOperationIntent(action));
     }
 
-    /** 开启，指定时间后执行一次  */
+    /** 开启，指定时间后执行一次  System.currentTimeMillis() + 1000  */
     public static void startRequestAlarm(long startTime,String action){
         cancelRequestAlarm(action);
         // 3秒钟后执行一次getOperationIntent方法
         mAlarmMgr.set(AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis() + startTime,
+                startTime,
                 getOperationIntent(action));
     }
 
@@ -116,17 +114,17 @@ public class GTimeTaskUtil {
         }
     }
 
-    public interface AlarmReceiverInterface{
+    public interface GAlarmReceiverInterface {
         void receiverSuccess(Intent intent);
     }
 
-    private static AlarmReceiverInterface mAlarmReceiverInterface;
+    private static GAlarmReceiverInterface mAlarmReceiverInterface;
 
     /**
      * 设置定时器到时间时的回调
      * @param alarmReceiverInterface
      */
-    public static void setAlarmReceiverSuccess(AlarmReceiverInterface alarmReceiverInterface){
+    public static void setAlarmReceiverSuccess(GAlarmReceiverInterface alarmReceiverInterface){
         mAlarmReceiverInterface = alarmReceiverInterface;
     }
 }

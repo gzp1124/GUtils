@@ -8,11 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.gzp1124.gutils.BaseApplication;
 import com.example.gzp1124.gutils.BaseFragment;
 import com.example.gzp1124.gutils.R;
 import com.example.gzp1124.gutils.utils.GTimeTaskUtil;
-import com.example.gzp1124.gutils.utils.GToastUtil;
 
 import java.util.Date;
 
@@ -40,7 +38,7 @@ public class TimeTaskTestFragment extends BaseFragment implements View.OnClickLi
         super.onViewCreated(view, savedInstanceState);
         final TextView tv = (TextView) view.findViewById(R.id.show_text);
 
-        GTimeTaskUtil.setAlarmReceiverSuccess(new GTimeTaskUtil.AlarmReceiverInterface() {
+        GTimeTaskUtil.setAlarmReceiverSuccess(new GTimeTaskUtil.GAlarmReceiverInterface() {
             @Override
             public void receiverSuccess(Intent intent) {
                 Date date = new Date();
@@ -57,6 +55,7 @@ public class TimeTaskTestFragment extends BaseFragment implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.start:
+                //这里测试的是3秒后开始，每隔1秒执行一次，可以通过calendar指定具体时间
                 GTimeTaskUtil.startRequestAlarm(GTimeTaskUtil.ALARM_ACTION);
                 break;
             case R.id.end:

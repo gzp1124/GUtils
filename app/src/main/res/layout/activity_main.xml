@@ -15,7 +15,7 @@
         <Button
             android:id="@+id/test1"
             android:layout_width="wrap_content"
-            android:text="测试1"
+            android:text="社会化"
             android:layout_height="wrap_content" />
         <Button
             android:id="@+id/timetask"

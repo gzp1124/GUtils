@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 
 import com.example.gzp1124.gutils.BaseFragment;
 import com.example.gzp1124.gutils.R;
+import com.example.gzp1124.gutils.three_platform.social.GShareInterface;
+import com.example.gzp1124.gutils.three_platform.social.GSocialUtil;
+import com.example.gzp1124.gutils.utils.GToastUtil;
 
 /**
  * 社会化功能测试
@@ -27,13 +30,30 @@ public class SocialTestFragment extends BaseFragment implements View.OnClickList
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         view.findViewById(R.id.share).setOnClickListener(this);
+        view.findViewById(R.id.share_qq).setOnClickListener(this);
     }
+
+    GShareInterface.GShareCallBack callBack = new GShareInterface.GShareCallBack() {
+        @Override
+        public void shareSuccess() {
+            GToastUtil.getInstance().setText("hahaha").show();
+        }
+
+        @Override
+        public void shareError() {
+            GToastUtil.getInstance().setText("eeeeee").show();
+        }
+    };
 
     @Override
     public void onClick(View view) {
+        GShareInterface.GShareInfo shareInfo = new GShareInterface.GShareInfo("内容","标题","图片","链接");
         switch (view.getId()){
-            case R.id.share:
-
+            case R.id.share://微信分享
+                GSocialUtil.getShareInstance().weixinShare(shareInfo,callBack);
+                break;
+            case R.id.share_qq:
+                GSocialUtil.getShareInstance().qqShare(shareInfo,callBack);
                 break;
         }
     }

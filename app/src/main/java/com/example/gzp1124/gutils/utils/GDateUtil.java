@@ -10,7 +10,7 @@ public class GDateUtil {
      * 获取当前时间戳
      * @return
      */
-    public long getsCurrentTimestamp(){
+    public static long getsCurrentTimestamp(){
         return System.currentTimeMillis();
     }
 }
