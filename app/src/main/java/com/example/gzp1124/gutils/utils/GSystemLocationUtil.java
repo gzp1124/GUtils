@@ -37,9 +37,6 @@ public class GSystemLocationUtil {
             gLocation = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
             return true;
         }else{
-            GToastUtil toastUtil = GToastUtil.getInstance();
-            toastUtil.setText("没有开启定位");
-            toastUtil.show();
             return false;
         }
     }

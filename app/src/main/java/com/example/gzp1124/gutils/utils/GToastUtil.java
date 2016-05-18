@@ -1,5 +1,6 @@
 package com.example.gzp1124.gutils.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -13,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.gzp1124.gutils.BaseApplication;
 import com.example.gzp1124.gutils.R;
 
 
@@ -60,7 +60,7 @@ public class GToastUtil {
     public static final int LENGTH_SHORT = 2;
     public static final int LENGTH_LONG = 4;
 
-    Context mContext;
+    static Activity mActivity;
     WindowManager.LayoutParams params;
     WindowManager mWM;
     LinearLayout mView;
@@ -71,7 +71,6 @@ public class GToastUtil {
     //初始化
     private GToastUtil(){
         //获取一个全局变量
-        this.mContext = BaseApplication.gContext;
         mHandler = new Handler();
         params = new WindowManager.LayoutParams();
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
@@ -88,26 +87,26 @@ public class GToastUtil {
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
         params.windowAnimations = R.style.gtoast_top_anim_view;
 
-        mWM = (WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE);
+        mWM = (WindowManager) mActivity.getSystemService(Context.WINDOW_SERVICE);
 
         LayoutInflater inflate = (LayoutInflater)
-                mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        mView = new LinearLayout(mContext);
+        mView = new LinearLayout(mActivity);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mView.setLayoutParams(layoutParams);
         mView.setPadding(0,20,0,20);
-        mView.setBackgroundColor(Color.parseColor("#66ff0000"));
+        mView.setBackgroundColor(Color.parseColor("#ccff0000"));
         mView.setOrientation(LinearLayout.HORIZONTAL);
         mView.setGravity(Gravity.CENTER);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        mIv = new ImageView(mContext);
+        mIv = new ImageView(mActivity);
         mIv.setImageResource(R.mipmap.ic_launcher);
         mView.addView(mIv,params);
 
-        mTv = new TextView(mContext);
+        mTv = new TextView(mActivity);
         mTv.setText("这是一条提示信息!");
         mView.addView(mTv,params);
     }
@@ -159,23 +158,28 @@ public class GToastUtil {
         }
     }
     //设置提示文本
-    public void setText(String text){
+    public GToastUtil setText(String text){
         mTv.setText(text);
+        return gToastFloat;
     }
     //设置图片
-    public void setImage(int imageId){
+    public GToastUtil setImage(int imageId){
         mIv.setImageResource(imageId);
+        return gToastFloat;
     }
     //设置图片
-    public void setImage(Bitmap bitmap){
+    public GToastUtil setImage(Bitmap bitmap){
         mIv.setImageBitmap(bitmap);
+        return gToastFloat;
     }
     //设置显示时间，默认为SHORT，（GToastUtil.LENGTH_SHORT）
-    public void setDuration(int duration) {
+    public GToastUtil setDuration(int duration) {
         mDuration = duration;
+        return gToastFloat;
     }
     //获取实例
-    public static GToastUtil getInstance(){
+    public static GToastUtil getInstance(Activity activity){
+        mActivity = activity;
         if (gToastFloat == null){
             gToastFloat = new GToastUtil();
         }

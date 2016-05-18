@@ -1,6 +1,7 @@
 package com.example.gzp1124.gutils;
 
 import android.app.Application;
+import android.app.Fragment;
 import android.content.Context;
 
 /**
@@ -9,10 +10,13 @@ import android.content.Context;
  */
 public class BaseApplication extends Application {
     public static Context gContext;
+    public static Fragment showFragment;
+
     //TODO 崩溃收集
+
     @Override
     public void onCreate() {
         super.onCreate();
-        gContext = this;
+        gContext = getApplicationContext();
     }
 }
