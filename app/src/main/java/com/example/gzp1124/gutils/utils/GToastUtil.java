@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.gzp1124.gutils.BaseApplication;
 import com.example.gzp1124.gutils.R;
 
 
@@ -68,9 +69,9 @@ public class GToastUtil {
     int mDuration = LENGTH_SHORT;
     private final ImageView mIv;
     //初始化
-    private GToastUtil(Context context){
+    private GToastUtil(){
         //获取一个全局变量
-        this.mContext = context.getApplicationContext();
+        this.mContext = BaseApplication.gContext;
         mHandler = new Handler();
         params = new WindowManager.LayoutParams();
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
@@ -87,12 +88,12 @@ public class GToastUtil {
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
         params.windowAnimations = R.style.gtoast_top_anim_view;
 
-        mWM = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
+        mWM = (WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE);
 
         LayoutInflater inflate = (LayoutInflater)
                 mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        mView = new LinearLayout(context);
+        mView = new LinearLayout(mContext);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mView.setLayoutParams(layoutParams);
         mView.setPadding(0,20,0,20);
@@ -102,11 +103,11 @@ public class GToastUtil {
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        mIv = new ImageView(context);
+        mIv = new ImageView(mContext);
         mIv.setImageResource(R.mipmap.ic_launcher);
         mView.addView(mIv,params);
 
-        mTv = new TextView(context);
+        mTv = new TextView(mContext);
         mTv.setText("这是一条提示信息!");
         mView.addView(mTv,params);
     }
@@ -174,9 +175,9 @@ public class GToastUtil {
         mDuration = duration;
     }
     //获取实例
-    public static GToastUtil getInstance(Context context){
+    public static GToastUtil getInstance(){
         if (gToastFloat == null){
-            gToastFloat = new GToastUtil(context);
+            gToastFloat = new GToastUtil();
         }
         return gToastFloat;
     }
