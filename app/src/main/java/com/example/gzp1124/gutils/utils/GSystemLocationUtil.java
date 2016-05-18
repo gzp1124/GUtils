@@ -37,6 +37,7 @@ public class GSystemLocationUtil {
             gLocation = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
             return true;
         }else{
+            GToastUtil.getInstance().setText("定位服务未开启").show();
             return false;
         }
     }

@@ -3,6 +3,7 @@ package com.example.gzp1124.gutils;
 import android.app.Application;
 import android.app.Fragment;
 import android.content.Context;
+import android.widget.Toast;
 
 /**
  * 作者：gzp on 2016/5/16 15:46
@@ -17,6 +18,10 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        gContext = getApplicationContext();
+        gContext = this;
+    }
+
+    public static void showToast(String content){
+        Toast.makeText(gContext,content,Toast.LENGTH_SHORT).show();
     }
 }

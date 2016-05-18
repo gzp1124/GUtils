@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.gzp1124.gutils.fragments_for_test.SocialTestFragment;
+import com.example.gzp1124.gutils.fragments_for_test.TimeTaskTestFragment;
 import com.example.gzp1124.gutils.utils.GSystemLocationUtil;
 import com.example.gzp1124.gutils.utils.GToastUtil;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.test1).setOnClickListener(this);
+        findViewById(R.id.timetask).setOnClickListener(this);
     }
 
     @Override
@@ -27,12 +29,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.test1:
                 fragment = new SocialTestFragment();
+                break;// 15535801439
+            case R.id.timetask:
+                fragment = new TimeTaskTestFragment();
                 break;
             default:
                 break;
         }
         if (fragment == null){
-            GToastUtil.getInstance(this).setText("fragment没有设置").show();
+            GToastUtil.getInstance().setText("fragment没有设置").show();
             return;
         }
         BaseApplication.showFragment = fragment;
