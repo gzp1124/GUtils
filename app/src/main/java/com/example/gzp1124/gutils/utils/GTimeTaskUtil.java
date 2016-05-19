@@ -56,7 +56,7 @@ public class GTimeTaskUtil {
         cancelRequestAlarm(action);
         // 3秒钟后执行一次getOperationIntent方法
         mAlarmMgr.setRepeating(AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis() + startTime ,intervalTime,
+                startTime ,intervalTime,
                 getOperationIntent(action));
     }
 

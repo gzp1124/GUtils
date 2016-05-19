@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GUtils</string>
+    <string name="message_come">消息来了</string>
 </resources>

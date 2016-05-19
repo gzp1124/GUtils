@@ -20,12 +20,15 @@ public interface GShareInterface {
         void shareError();
     }
 
+    boolean regWX();
+
     void weixinShare(GShareInfo shareInfo,GShareCallBack callBack);
 
     void qqShare(GShareInfo shareInfo,GShareCallBack callBack);
 
     /**
      * 分享实体类，要分享的内容同实体传递
+     * 微信目前支持的分享内容为：文字、图片、音乐、视频、网页
      */
     public class GShareInfo{
         private String content;

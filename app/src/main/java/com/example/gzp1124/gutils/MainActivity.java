@@ -8,12 +8,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.gzp1124.gutils.fragments_for_test.SendMyBroadFragment;
 import com.example.gzp1124.gutils.fragments_for_test.SocialTestFragment;
 import com.example.gzp1124.gutils.fragments_for_test.TimeTaskTestFragment;
 import com.example.gzp1124.gutils.utils.GSystemLocationUtil;
+import com.example.gzp1124.gutils.utils.GTimeTaskUtil;
 import com.example.gzp1124.gutils.utils.GToastUtil;
+import com.example.gzp1124.gutils.utils.NotificationUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    public static void useTask(final String show){
+        GTimeTaskUtil.setAlarmReceiverSuccess(new GTimeTaskUtil.GAlarmReceiverInterface() {
+            @Override
+            public void receiverSuccess(Intent intent) {
+                NotificationUtil.simple(show);
+            }
+        });
+        GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.ALARM_ACTION);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +33,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         findViewById(R.id.test1).setOnClickListener(this);
         findViewById(R.id.timetask).setOnClickListener(this);
+        useTask("create");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        useTask("resume");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        useTask("restart");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        useTask("start");
     }
 
     @Override
@@ -29,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.test1:
                 fragment = new SocialTestFragment();
+//                fragment = new SendMyBroadFragment();
                 break;// 15535801439
             case R.id.timetask:
                 fragment = new TimeTaskTestFragment();

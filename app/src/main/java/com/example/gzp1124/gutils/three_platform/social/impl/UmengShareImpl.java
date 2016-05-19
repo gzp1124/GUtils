@@ -10,6 +10,11 @@ import com.example.gzp1124.gutils.three_platform.social.GShareInterface;
  */
 public class UmengShareImpl implements GShareInterface {
     @Override
+    public boolean regWX() {
+        return false;
+    }
+
+    @Override
     public void weixinShare(GShareInfo shareInfo,GShareCallBack callBack) {
         callBack.shareSuccess();
     }
