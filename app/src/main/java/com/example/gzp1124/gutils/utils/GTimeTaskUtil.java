@@ -45,7 +45,7 @@ public class GTimeTaskUtil {
     /** 开启，指定时间后执行一次  System.currentTimeMillis() + 1000  */
     public static void startRequestAlarm(long startTime,String action){
         cancelRequestAlarm(action);
-        // 3秒钟后执行一次getOperationIntent方法
+        // 指定时间为相对于1970年的时间毫秒值
         mAlarmMgr.set(AlarmManager.RTC_WAKEUP,
                 startTime,
                 getOperationIntent(action));
@@ -54,9 +54,9 @@ public class GTimeTaskUtil {
     /** 开启，指定时间后执行一次，每隔一段时间后执行一次 */
     public static void startRequestAlarm(long startTime,long intervalTime,String action){
         cancelRequestAlarm(action);
-        // 3秒钟后执行一次getOperationIntent方法
+        // 指定时间为相对于1970年的时间毫秒值
         mAlarmMgr.setRepeating(AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis() + startTime ,intervalTime,
+                startTime ,intervalTime,
                 getOperationIntent(action));
     }
 
