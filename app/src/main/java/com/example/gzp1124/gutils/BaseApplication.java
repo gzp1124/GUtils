@@ -28,5 +28,6 @@ public class BaseApplication extends Application {
 
     public static void showToast(String content){
         Toast.makeText(gContext,content,Toast.LENGTH_SHORT).show();
+
     }
 }
