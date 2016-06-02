@@ -16,12 +16,14 @@
 
 package com.example.gzp1124.gutils.three_ui_widget.have_header_viewpager;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -33,6 +35,8 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * To be used with ViewPager to provide a tab indicator component which give constant feedback as
  * to
@@ -40,7 +44,7 @@ import android.widget.TextView;
  * <p>
  * To use the component, simply add it to your view hierarchy. Then in your
  * {@link android.app.Activity} or {@link android.support.v4.app.Fragment} call
- * {@link #setViewPager(ViewPager)} providing it the ViewPager this layout is being used for.
+ * {@link #setViewPager(ViewPager,Activity)} providing it the ViewPager this layout is being used for.
  * <p>
  * The colors can be customized in two ways. The first and simplest is to provide an array of
  * colors
@@ -52,6 +56,9 @@ import android.widget.TextView;
  * providing the layout ID of your custom layout.
  */
 public class HVSlidingTabLayout extends HorizontalScrollView {
+
+    private int gWidth;
+
     /**
      * Allows complete control over the colors drawn in the tab layout. Set with
      * {@link #setCustomTabColorizer(TabColorizer)}.
@@ -152,13 +159,13 @@ public class HVSlidingTabLayout extends HorizontalScrollView {
      * Sets the associated view pager. Note that the assumption here is that the pager content
      * (number of tabs and tab titles) does not change after this call has been made.
      */
-    public void setViewPager(ViewPager viewPager) {
+    public void setViewPager(ViewPager viewPager, Activity activity) {
         mTabStrip.removeAllViews();
 
         mViewPager = viewPager;
         if (viewPager != null) {
             viewPager.setOnPageChangeListener(new InternalViewPagerListener());
-            populateTabStrip();
+            populateTabStrip(activity);
         }
     }
 
@@ -188,10 +195,11 @@ public class HVSlidingTabLayout extends HorizontalScrollView {
         return textView;
     }
 
-    private void populateTabStrip() {
+    private void populateTabStrip(Activity activity) {
         final PagerAdapter adapter = mViewPager.getAdapter();
         final OnClickListener tabClickListener = new TabClickListener();
-
+        getWH(activity);
+        ArrayList<View> tabTextViews = new ArrayList<>();
         for (int i = 0; i < adapter.getCount(); i++) {
             View tabView = null;
             TextView tabTitleView = null;
@@ -226,10 +234,44 @@ public class HVSlidingTabLayout extends HorizontalScrollView {
             }
 
             mTabStrip.addView(tabView);
+            tabTextViews.add(tabView);
             if (i == mViewPager.getCurrentItem()) {
                 tabView.setSelected(true);
             }
         }
+
+        int mW = 0;
+        for (View v : tabTextViews) {
+            v.measure(0,0);
+            mW += v.getMeasuredWidth();
+        }
+        int betweenW = gWidth-mW;
+        int oneW = 0;
+        if (betweenW > 0){
+            int eveBetW = betweenW / tabTextViews.size();
+            mTabStrip.removeAllViews();
+            int i = 0;
+            for (View v : tabTextViews) {
+                i++;
+                v.measure(0,0);
+                oneW = v.getMeasuredWidth();
+                v.setLayoutParams(new LinearLayout.LayoutParams(oneW + eveBetW,
+                        ViewGroup.LayoutParams.WRAP_CONTENT));
+                mTabStrip.addView(v);
+                if (i == mViewPager.getCurrentItem()) {
+                    v.setSelected(true);
+                }
+//                textView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+//                        ViewGroup.LayoutParams.WRAP_CONTENT));
+            }
+        }
+    }
+
+    private void getWH(Activity activity){
+        DisplayMetrics dm = new DisplayMetrics();//获取当前显示的界面大小
+        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        gWidth = dm.widthPixels;
+        int height = dm.heightPixels;//获取当前界面的高度
     }
 
     public void setContentDescription(int i, String desc) {

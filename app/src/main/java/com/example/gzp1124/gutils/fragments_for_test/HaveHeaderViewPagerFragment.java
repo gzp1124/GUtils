@@ -29,7 +29,7 @@ public class HaveHeaderViewPagerFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         GHaveHeaderViewpagerUtil ghvUtil = new GHaveHeaderViewpagerUtil(getActivity());
         LinkedHashMap<String,HVFragment.FullContentView> map = new LinkedHashMap<>();
-        map.put("第一个",new HVMyScrollFragment.FullScrollview(){
+        map.put("货架",new HVMyScrollFragment.FullScrollview(){
 
             @Override
             public View fullSCrollview() {
@@ -38,7 +38,14 @@ public class HaveHeaderViewPagerFragment extends BaseFragment {
                 return textView;
             }
         });
-        map.put("来一个6空得listview", new HVMyListFragment.FullListView() {
+        map.put("资料", new HVMyListFragment.FullListView() {
+            @Override
+            public void fullListView(ListView listView) {
+//                listView.setAdapter(new ArrayAdapter<String >(getActivity(),android.R.layout.simple_list_item_1,
+//                        android.R.id.text1,getResources().getStringArray(R.array.list)));
+            }
+        });
+        map.put("资料1", new HVMyListFragment.FullListView() {
             @Override
             public void fullListView(ListView listView) {
 //                listView.setAdapter(new ArrayAdapter<String >(getActivity(),android.R.layout.simple_list_item_1,

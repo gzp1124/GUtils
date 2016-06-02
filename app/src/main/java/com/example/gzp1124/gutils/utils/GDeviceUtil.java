@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.util.DisplayMetrics;
 
 import com.example.gzp1124.gutils.BaseApplication;
 

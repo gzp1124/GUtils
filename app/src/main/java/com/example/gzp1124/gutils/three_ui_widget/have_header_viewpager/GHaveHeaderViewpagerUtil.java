@@ -119,7 +119,7 @@ public class GHaveHeaderViewpagerUtil {
 
         myScrollable = helper.getMyScrollable();
         mViewPager.setAdapter(new ViewPagerAdapter(mActivity.getSupportFragmentManager()));
-        slidingTabLayout.setViewPager(mViewPager);
+        slidingTabLayout.setViewPager(mViewPager,mActivity);
         return view;
     }
 
