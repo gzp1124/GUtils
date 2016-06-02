@@ -1,13 +1,14 @@
 package com.example.gzp1124.gutils;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.gzp1124.gutils.fragments_for_test.HaveHeaderViewPagerFragment;
 import com.example.gzp1124.gutils.fragments_for_test.SendMyBroadFragment;
 import com.example.gzp1124.gutils.fragments_for_test.SocialTestFragment;
 import com.example.gzp1124.gutils.fragments_for_test.TimeTaskTestFragment;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         findViewById(R.id.test1).setOnClickListener(this);
         findViewById(R.id.timetask).setOnClickListener(this);
+        findViewById(R.id.have_header_viewpager).setOnClickListener(this);
         useTask("create");
     }
 
@@ -64,6 +66,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;// 15535801439
             case R.id.timetask:
                 fragment = new TimeTaskTestFragment();
+                break;
+            case R.id.have_header_viewpager:
+                fragment = new HaveHeaderViewPagerFragment();
                 break;
             default:
                 break;

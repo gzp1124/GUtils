@@ -1,8 +1,8 @@
 package com.example.gzp1124.gutils;
 
 import android.app.Application;
-import android.app.Fragment;
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.example.gzp1124.gutils.three_platform.social.GSocialUtil;

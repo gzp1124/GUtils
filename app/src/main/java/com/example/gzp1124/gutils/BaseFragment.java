@@ -1,8 +1,8 @@
 package com.example.gzp1124.gutils;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 
 /**
  * author：高志鹏 on 16/5/18 10:35
