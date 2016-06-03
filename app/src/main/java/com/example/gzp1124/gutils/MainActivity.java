@@ -11,6 +11,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.gzp1124.gutils.fragments_for_test.HaveHeaderViewPagerFragment;
+import com.example.gzp1124.gutils.fragments_for_test.MapTestFragment;
+import com.example.gzp1124.gutils.fragments_for_test.SendMyBroadFragment;
 import com.example.gzp1124.gutils.fragments_for_test.SocialTestFragment;
 import com.example.gzp1124.gutils.fragments_for_test.TimeTaskTestFragment;
 
@@ -25,6 +27,8 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("社会化",new SocialTestFragment());
         fragmentMap.put("定时器",new TimeTaskTestFragment());
         fragmentMap.put("带有头布局的viewpager",new HaveHeaderViewPagerFragment());
+        fragmentMap.put("发送自定义广播",new SendMyBroadFragment());
+        fragmentMap.put("百度地图",new MapTestFragment());
     }
 
     @Override
