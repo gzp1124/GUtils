@@ -26,7 +26,7 @@ public class HVMyListFragment extends HVFragment  implements HVScrollableListene
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.hv_fragment_list_view,null);
+        View view = inflater.inflate(R.layout.have_header_viewpager_fragment_list_view,null);
         mListview = (ListView) view.findViewById(R.id.list_item);
         mListview.setEmptyView(view.findViewById(R.id.empty));
         if (fullListView != null){

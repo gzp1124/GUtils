@@ -96,7 +96,7 @@ public class GHaveHeaderViewpagerUtil {
             tabNames[i++] = s;
         }
 
-        View view = View.inflate(mActivity, R.layout.hv_show_main,null);
+        View view = View.inflate(mActivity, R.layout.have_header_viewpager_show_main,null);
         HVTouchCallbackLayout touchCallbackLayout = (HVTouchCallbackLayout) view.findViewById(R.id.layout);
 
         mHeaderLayoutView = view.findViewById(R.id.header);

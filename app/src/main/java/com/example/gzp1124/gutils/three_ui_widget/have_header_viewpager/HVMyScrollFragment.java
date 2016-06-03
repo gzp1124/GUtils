@@ -25,7 +25,7 @@ public class HVMyScrollFragment extends HVFragment implements HVScrollableListen
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.hv_fragment_scroll_view,null );
+        View view = inflater.inflate(R.layout.have_header_viewpager_fragment_scroll_view,null );
         scrollView = (ScrollView) view.findViewById(R.id.scrollview);
         View contentView = null;
         if (fullScrollview != null){
