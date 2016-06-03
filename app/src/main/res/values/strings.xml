@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">GUtils</string>
     <string name="message_come">消息来了</string>
+
+    <array name="list">
+        <item>测试列表文本</item>
+        <item>测试列表文本</item>
+        <item>测试列表文本</item>
+        <item>测试列表文本</item>
+        <item>测试列表文本</item>
+        <item>测试列表文本</item>
+        <item>测试列表文本</item>
+        <item>测试列表文本</item>
+        <item>测试列表文本</item>
+        <item>测试列表文本</item>
+    </array>
 </resources>

@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -25,35 +26,50 @@ import java.util.Map;
  *  设置定时器到时间的回调：setAlarmReceiverSuccess
  */
 public class GTimeTaskUtil {
-    public static String ALARM_ACTION = "gzp1124.alarm.service";
+    public static String DEFAULT_ACTION = "gzp1124.alarm.service";
+    public static String CURRENT_ACTION = "";
     private static AlarmManager mAlarmMgr;
     private static Context mContext = BaseApplication.gContext;
 
-    private static void init(){
-        mAlarmMgr = (AlarmManager) mContext.getSystemService(mContext.ALARM_SERVICE);
+    private static void init(String action){
+        CURRENT_ACTION = action;
+        if (mAlarmMgr == null) {
+            mAlarmMgr = (AlarmManager) mContext.getSystemService(mContext.ALARM_SERVICE);
+        }else{
+            cancelRequestAlarm(action);
+        }
     }
 
-    /** 开启，3秒钟后执行一次，每隔1秒执行一次 */
+    /** 开启，每隔1秒执行一次 */
     public static void startRequestAlarm(String action) {
-        cancelRequestAlarm(action);
-        // 3秒钟后执行一次getOperationIntent方法
+        init(action);
+        // 1秒钟后执行一次getOperationIntent方法
         mAlarmMgr.setRepeating(AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis() + 3000,1000,
+                0,1000,
                 getOperationIntent(action));
     }
 
-    /** 开启，指定时间后执行一次  System.currentTimeMillis() + 1000  */
+    /**
+     * 开启，指定时间后执行一次，要用指定时间的时间戳，不是相对时间  System.currentTimeMillis() + 1000
+     * @param startTime 执行时间，毫秒，如 System.currentTimeMillis() + 1000
+     * @param action 事件
+     */
     public static void startRequestAlarm(long startTime,String action){
-        cancelRequestAlarm(action);
+        init(action);
         // 指定时间为相对于1970年的时间毫秒值
         mAlarmMgr.set(AlarmManager.RTC_WAKEUP,
                 startTime,
                 getOperationIntent(action));
     }
 
-    /** 开启，指定时间后执行一次，每隔一段时间后执行一次 */
+    /**
+     * 开启，首次间隔时间后执行一次，每隔一段时间后执行一次
+     * @param startTime 第一次执行间隔的时间，单位毫秒，如：1000
+     * @param intervalTime 以后每次的间隔时间，毫秒
+     * @param action 事件
+     */
     public static void startRequestAlarm(long startTime,long intervalTime,String action){
-        cancelRequestAlarm(action);
+        init(action);
         // 指定时间为相对于1970年的时间毫秒值
         mAlarmMgr.setRepeating(AlarmManager.RTC_WAKEUP,
                 startTime ,intervalTime,
@@ -62,23 +78,18 @@ public class GTimeTaskUtil {
 
     /** 关闭 */
     public static void cancelRequestAlarm(String action) {
-        if (mAlarmMgr == null){
-            init();
+        if (mAlarmMgr != null){
+            mAlarmMgr.cancel(getOperationIntent(action));
         }
-        mAlarmMgr.cancel(getOperationIntent(action));
     }
 
     private static PendingIntent getOperationIntent(String action) {
-//        AlarmReceiver alarmReceiver = new AlarmReceiver();
-//        IntentFilter filter = new IntentFilter();
-
-//        filter.addAction(action);
         Intent intent = new Intent(mContext, AlarmReceiver.class);
         intent.setAction(action);
         if (mExtras != null){
             for (String key:mExtras.keySet()){
                 if (TextUtils.isEmpty(key)||mExtras.get(key)==null){
-                    GToastUtil.getInstance().setText("不能传空");
+                    Toast.makeText(BaseApplication.gContext,"不能传空",Toast.LENGTH_SHORT).show();
                     break;
                 }
                 intent.putExtra(key,mExtras.get(key));

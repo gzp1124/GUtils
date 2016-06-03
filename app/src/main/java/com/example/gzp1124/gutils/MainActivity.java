@@ -1,83 +1,44 @@
 package com.example.gzp1124.gutils;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+
+import android.app.ListActivity;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.gzp1124.gutils.fragments_for_test.HaveHeaderViewPagerFragment;
-import com.example.gzp1124.gutils.fragments_for_test.SendMyBroadFragment;
 import com.example.gzp1124.gutils.fragments_for_test.SocialTestFragment;
 import com.example.gzp1124.gutils.fragments_for_test.TimeTaskTestFragment;
-import com.example.gzp1124.gutils.utils.GSystemLocationUtil;
-import com.example.gzp1124.gutils.utils.GTimeTaskUtil;
-import com.example.gzp1124.gutils.utils.GToastUtil;
-import com.example.gzp1124.gutils.utils.NotificationUtil;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    public static void useTask(final String show){
-        GTimeTaskUtil.setAlarmReceiverSuccess(new GTimeTaskUtil.GAlarmReceiverInterface() {
-            @Override
-            public void receiverSuccess(Intent intent) {
-                NotificationUtil.simple(show);
-            }
-        });
-        GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.ALARM_ACTION);
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class MainActivity extends ListActivity {
+    private static Map<String,Fragment> fragmentMap = new LinkedHashMap<>();
+
+    static {
+        fragmentMap.put("社会化",new SocialTestFragment());
+        fragmentMap.put("定时器",new TimeTaskTestFragment());
+        fragmentMap.put("带有头布局的viewpager",new HaveHeaderViewPagerFragment());
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        findViewById(R.id.test1).setOnClickListener(this);
-        findViewById(R.id.timetask).setOnClickListener(this);
-        findViewById(R.id.have_header_viewpager).setOnClickListener(this);
-        useTask("create");
+        ArrayList<String> arrs = new ArrayList<>();
+        arrs.addAll(fragmentMap.keySet());
+        setListAdapter(new ArrayAdapter<String >(this,android.R.layout.simple_list_item_1,android.R.id.text1,arrs));
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        useTask("resume");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        useTask("restart");
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        useTask("start");
-    }
-
-    @Override
-    public void onClick(View v) {
-        Fragment fragment = null;
-        switch (v.getId()){
-            case R.id.test1:
-                fragment = new SocialTestFragment();
-//                fragment = new SendMyBroadFragment();
-                break;// 15535801439
-            case R.id.timetask:
-                fragment = new TimeTaskTestFragment();
-                break;
-            case R.id.have_header_viewpager:
-                fragment = new HaveHeaderViewPagerFragment();
-                break;
-            default:
-                break;
-        }
-        if (fragment == null){
-            GToastUtil.getInstance().setText("fragment没有设置").show();
-            return;
-        }
-        BaseApplication.showFragment = fragment;
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        BaseApplication.showFragment = fragmentMap.get(((TextView)v).getText().toString().trim());
         Intent intent = new Intent(this,ShowActivity.class);
         startActivity(intent);
     }

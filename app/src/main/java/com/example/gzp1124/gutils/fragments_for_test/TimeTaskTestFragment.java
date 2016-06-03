@@ -2,6 +2,7 @@ package com.example.gzp1124.gutils.fragments_for_test;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,9 @@ import android.widget.TextView;
 
 import com.example.gzp1124.gutils.BaseFragment;
 import com.example.gzp1124.gutils.R;
+import com.example.gzp1124.gutils.utils.GDateUtil;
 import com.example.gzp1124.gutils.utils.GTimeTaskUtil;
+import com.example.gzp1124.gutils.utils.GToastUtil;
 
 import java.util.Date;
 
@@ -26,6 +29,14 @@ public class TimeTaskTestFragment extends BaseFragment implements View.OnClickLi
         开启定时器
         关闭定时器
         回调成功后显示当前时间到textview上
+
+        基本使用：
+        1. GTimeTaskUtil.setAlarmReceiverSuccess 定时器执行的动作
+        2. GTimeTaskUtil.startRequestAlarm 开启定时器
+        3. GTimeTaskUtil.cancelRequestAlarm 停止定时器
+
+        注意：在页面关闭的时候要停止定时器，如果在后台执行定时器操作，另论
+
      */
     @Nullable
     @Override
@@ -38,6 +49,7 @@ public class TimeTaskTestFragment extends BaseFragment implements View.OnClickLi
         super.onViewCreated(view, savedInstanceState);
         final TextView tv = (TextView) view.findViewById(R.id.show_text);
 
+        //指定执行的任务
         GTimeTaskUtil.setAlarmReceiverSuccess(new GTimeTaskUtil.GAlarmReceiverInterface() {
             @Override
             public void receiverSuccess(Intent intent) {
@@ -49,6 +61,8 @@ public class TimeTaskTestFragment extends BaseFragment implements View.OnClickLi
 
         view.findViewById(R.id.start).setOnClickListener(this);
         view.findViewById(R.id.end).setOnClickListener(this);
+        view.findViewById(R.id.start1).setOnClickListener(this);
+        view.findViewById(R.id.start2).setOnClickListener(this);
     }
 
     @Override
@@ -56,10 +70,19 @@ public class TimeTaskTestFragment extends BaseFragment implements View.OnClickLi
         switch (view.getId()){
             case R.id.start:
                 //这里测试的是3秒后开始，每隔1秒执行一次，可以通过calendar指定具体时间
-                GTimeTaskUtil.startRequestAlarm(GTimeTaskUtil.ALARM_ACTION);
+                GTimeTaskUtil.startRequestAlarm(GTimeTaskUtil.DEFAULT_ACTION);
                 break;
             case R.id.end:
-                GTimeTaskUtil.cancelRequestAlarm(GTimeTaskUtil.ALARM_ACTION);
+                GTimeTaskUtil.cancelRequestAlarm(GTimeTaskUtil.DEFAULT_ACTION);
+                break;
+            case R.id.start1:
+                GTimeTaskUtil.startRequestAlarm(1000,2000,GTimeTaskUtil.DEFAULT_ACTION);
+                break;
+            case R.id.start2:
+//                GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis()+2000,GTimeTaskUtil.DEFAULT_ACTION);
+
+                GTimeTaskUtil.startRequestAlarm(GDateUtil.getSpecifiedTimestamp("2016-06-03 17:47:00",GDateUtil.TIME_FORMAT),GTimeTaskUtil.DEFAULT_ACTION);
+
                 break;
         }
     }
@@ -67,6 +90,6 @@ public class TimeTaskTestFragment extends BaseFragment implements View.OnClickLi
     @Override
     public void onDestroy() {
         super.onDestroy();
-        GTimeTaskUtil.cancelRequestAlarm(GTimeTaskUtil.ALARM_ACTION);
+        GTimeTaskUtil.cancelRequestAlarm(GTimeTaskUtil.DEFAULT_ACTION);
     }
 }

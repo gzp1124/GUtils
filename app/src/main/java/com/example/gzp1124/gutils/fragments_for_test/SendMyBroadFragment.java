@@ -33,12 +33,12 @@ public class SendMyBroadFragment extends BaseFragment {
                 NotificationUtil.simple();
             }
         });
-        GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.ALARM_ACTION);
+        GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.DEFAULT_ACTION);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        GTimeTaskUtil.cancelRequestAlarm(GTimeTaskUtil.ALARM_ACTION);
+        GTimeTaskUtil.cancelRequestAlarm(GTimeTaskUtil.DEFAULT_ACTION);
     }
 }

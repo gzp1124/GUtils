@@ -6,7 +6,9 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.support.v4.app.FragmentActivity;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.gzp1124.gutils.BaseApplication;
 
@@ -37,7 +39,7 @@ public class GSystemLocationUtil {
             gLocation = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
             return true;
         }else{
-            GToastUtil.getInstance().setText("定位服务未开启").show();
+            Toast.makeText(BaseApplication.gContext,"定位服务未开启",Toast.LENGTH_SHORT).show();
             return false;
         }
     }

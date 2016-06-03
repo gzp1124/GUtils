@@ -4,19 +4,34 @@
     android:padding="20dp"
     android:layout_height="match_parent">
 
-    <Button
-        android:text="开始"
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
     <Button
         android:text="停止"
         android:id="@+id/end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:text="开始1(间隔1秒执行一次)"
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:text="开始2(1秒后开启，隔2秒执行一次)"
+        android:id="@+id/start1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:text="开始3(指定时间执行一次，相当于闹钟)"
+        android:id="@+id/start2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/show_text"
+        android:layout_marginTop="10dp"
         android:hint="回调后显示文字"
         android:textSize="15sp"
         android:layout_width="wrap_content"

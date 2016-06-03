@@ -28,7 +28,6 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
 
         mWxApi = WXAPIFactory.createWXAPI(this, GSocialUtil.WX_APP_ID, false);
         mWxApi.registerApp(GSocialUtil.WX_APP_ID);
@@ -44,7 +43,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                 NotificationUtil.simple("来自onReq");
             }
         });
-        GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.ALARM_ACTION);
+        GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.DEFAULT_ACTION);
     }
 
     /*
@@ -68,7 +67,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                 NotificationUtil.simple("错误号：" + baseResp.errCode + "；信息：" + baseResp.errStr);
             }
         });
-        GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.ALARM_ACTION);
+        GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.DEFAULT_ACTION);
         finish();
     }
 

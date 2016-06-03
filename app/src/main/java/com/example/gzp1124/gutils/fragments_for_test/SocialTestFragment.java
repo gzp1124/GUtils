@@ -36,12 +36,12 @@ public class SocialTestFragment extends BaseFragment implements View.OnClickList
     GShareInterface.GShareCallBack callBack = new GShareInterface.GShareCallBack() {
         @Override
         public void shareSuccess() {
-            GToastUtil.getInstance().setText("hahaha").show();
+            GToastUtil.getInstance(getActivity()).setText("hahaha").show();
         }
 
         @Override
         public void shareError() {
-            GToastUtil.getInstance().setText("eeeeee").show();
+            GToastUtil.getInstance(getActivity()).setText("eeeeee").show();
         }
     };
 

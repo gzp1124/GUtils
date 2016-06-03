@@ -5,7 +5,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -16,6 +18,8 @@ import android.widget.TextView;
 
 import com.example.gzp1124.gutils.BaseApplication;
 import com.example.gzp1124.gutils.R;
+
+import java.lang.ref.WeakReference;
 
 
 /**
@@ -61,7 +65,7 @@ public class GToastUtil {
     public static final int LENGTH_SHORT = 2;
     public static final int LENGTH_LONG = 4;
 
-    static Context mContext;
+    static WeakReference<Activity> mActivity;
     WindowManager.LayoutParams params;
     WindowManager mWM;
     LinearLayout mView;
@@ -78,7 +82,13 @@ public class GToastUtil {
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
         params.format = PixelFormat.TRANSLUCENT;
         params.alpha = 80;
-        params.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
+
+        if (Build.VERSION.SDK_INT > 19){
+            params.type = WindowManager.LayoutParams.TYPE_TOAST;
+        }else {
+            params.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
+        }
+
         params.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                 | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
@@ -88,12 +98,12 @@ public class GToastUtil {
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
         params.windowAnimations = R.style.gtoast_top_anim_view;
 
-        mWM = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        mWM = (WindowManager) mActivity.get().getSystemService(Context.WINDOW_SERVICE);
 
         LayoutInflater inflate = (LayoutInflater)
-                mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                mActivity.get().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        mView = new LinearLayout(mContext);
+        mView = new LinearLayout(mActivity.get());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mView.setLayoutParams(layoutParams);
         mView.setPadding(0,20,0,20);
@@ -103,11 +113,11 @@ public class GToastUtil {
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        mIv = new ImageView(mContext);
+        mIv = new ImageView(mActivity.get());
         mIv.setImageResource(R.mipmap.ic_launcher);
         mView.addView(mIv,params);
 
-        mTv = new TextView(mContext);
+        mTv = new TextView(mActivity.get());
         mTv.setText("这是一条提示信息!");
         mView.addView(mTv,params);
     }
@@ -179,8 +189,8 @@ public class GToastUtil {
         return gToastFloat;
     }
     //获取实例
-    public static GToastUtil getInstance(){
-        mContext = BaseApplication.gContext;
+    public static GToastUtil getInstance(Activity activity){
+        mActivity = new WeakReference<Activity>(activity);
         if (gToastFloat == null){
             gToastFloat = new GToastUtil();
         }
