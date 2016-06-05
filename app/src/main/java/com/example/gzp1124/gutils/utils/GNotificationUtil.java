@@ -15,7 +15,7 @@ import java.io.Serializable;
  * author：高志鹏 on 16/5/19 10:19
  * email:imbagaozp@163.com
  */
-public class NotificationUtil {
+public class GNotificationUtil {
     public static void simple(){
 //        PendingIntent pi = PendingIntent.getActivity(this, 1000, intent,
 //                PendingIntent.FLAG_CANCEL_CURRENT);

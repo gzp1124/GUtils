@@ -5,10 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.gzp1124.gutils.R;
 import com.example.gzp1124.gutils.three_platform.social.GSocialUtil;
 import com.example.gzp1124.gutils.utils.GTimeTaskUtil;
-import com.example.gzp1124.gutils.utils.NotificationUtil;
+import com.example.gzp1124.gutils.utils.GNotificationUtil;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.openapi.IWXAPI;
@@ -40,7 +39,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         GTimeTaskUtil.setAlarmReceiverSuccess(new GTimeTaskUtil.GAlarmReceiverInterface() {
             @Override
             public void receiverSuccess(Intent intent) {
-                NotificationUtil.simple("来自onReq");
+                GNotificationUtil.simple("来自onReq");
             }
         });
         GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.DEFAULT_ACTION);
@@ -64,7 +63,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         GTimeTaskUtil.setAlarmReceiverSuccess(new GTimeTaskUtil.GAlarmReceiverInterface() {
             @Override
             public void receiverSuccess(Intent intent) {
-                NotificationUtil.simple("错误号：" + baseResp.errCode + "；信息：" + baseResp.errStr);
+                GNotificationUtil.simple("错误号：" + baseResp.errCode + "；信息：" + baseResp.errStr);
             }
         });
         GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.DEFAULT_ACTION);

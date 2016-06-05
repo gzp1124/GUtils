@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.example.gzp1124.gutils.BaseFragment;
 import com.example.gzp1124.gutils.R;
 import com.example.gzp1124.gutils.utils.GTimeTaskUtil;
-import com.example.gzp1124.gutils.utils.NotificationUtil;
+import com.example.gzp1124.gutils.utils.GNotificationUtil;
 
 /**
  * author：高志鹏 on 16/5/19 10:14
@@ -30,7 +30,7 @@ public class SendMyBroadFragment extends BaseFragment {
         GTimeTaskUtil.setAlarmReceiverSuccess(new GTimeTaskUtil.GAlarmReceiverInterface() {
             @Override
             public void receiverSuccess(Intent intent) {
-                NotificationUtil.simple();
+                GNotificationUtil.simple();
             }
         });
         GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.DEFAULT_ACTION);
