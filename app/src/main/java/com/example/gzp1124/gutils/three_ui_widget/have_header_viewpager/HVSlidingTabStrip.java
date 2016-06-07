@@ -26,7 +26,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 class HVSlidingTabStrip extends LinearLayout {
-
+    //下划线的显示长度，-1为填满显示
+    private int showWidth = 50;
     private static final int DEFAULT_BOTTOM_BORDER_THICKNESS_DIPS = 0;
     private static final byte DEFAULT_BOTTOM_BORDER_COLOR_ALPHA = 0x26;
     private static final int SELECTED_INDICATOR_THICKNESS_DIPS = 3;
@@ -45,6 +46,16 @@ class HVSlidingTabStrip extends LinearLayout {
 
     private HVSlidingTabLayout.TabColorizer mCustomTabColorizer;
     private final SimpleTabColorizer mDefaultTabColorizer;
+    private int left;
+    private int right;
+    private int sleft;
+    private int sright;
+    private int len;
+    private int duo;
+    private int len1;
+    private int addS;
+    private int color;
+    private int nextColor;
 
     HVSlidingTabStrip(Context context) {
         this(context, null);
@@ -102,12 +113,19 @@ class HVSlidingTabStrip extends LinearLayout {
         // Thick colored underline below the current selection
         if (childCount > 0) {
             View selectedTitle = getChildAt(mSelectedPosition);
-            int left = selectedTitle.getLeft();
-            int right = selectedTitle.getRight();
-            int color = tabColorizer.getIndicatorColor(mSelectedPosition);
+            left = selectedTitle.getLeft();
+            right = selectedTitle.getRight();
+            color = tabColorizer.getIndicatorColor(mSelectedPosition);
+
+            if (showWidth != -1) {
+                sleft = (right - left) / 2 - showWidth / 2 + left;
+                sright = (right - left) / 2 + showWidth / 2 + left;
+                left = sleft;
+                right = sright;
+            }
 
             if (mSelectionOffset > 0f && mSelectedPosition < (getChildCount() - 1)) {
-                int nextColor = tabColorizer.getIndicatorColor(mSelectedPosition + 1);
+                nextColor = tabColorizer.getIndicatorColor(mSelectedPosition + 1);
                 if (color != nextColor) {
                     color = blendColors(nextColor, color, mSelectionOffset);
                 }
@@ -118,6 +136,19 @@ class HVSlidingTabStrip extends LinearLayout {
                         + (1.0f - mSelectionOffset) * left);
                 right = (int) (mSelectionOffset * nextTitle.getRight()
                         + (1.0f - mSelectionOffset) * right);
+
+                if (showWidth != -1) {
+                    len1 = nextTitle.getRight() - nextTitle.getLeft();
+                    duo = (right - left) - len1 / 2;
+                    if (duo > 0) {
+                        addS = showWidth / 2;
+                        if (duo < addS) {
+                            addS = duo;
+                        }
+                        left = left + duo - addS;
+                        right = right - duo + addS;
+                    }
+                }
             }
 
             mSelectedIndicatorPaint.setColor(color);
