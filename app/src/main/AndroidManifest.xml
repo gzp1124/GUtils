@@ -11,7 +11,11 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
+    <!--扫一扫-->
+    <uses-permission android:name="android.permission.CAMERA" />　　
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
 
     <application
         android:allowBackup="true"
@@ -28,6 +32,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ShowActivity"/>
+        <activity android:name=".print.CaptureActivity"/>
+
         <activity android:name=".wxapi.WXEntryActivity"
             android:exported="true">
         </activity>

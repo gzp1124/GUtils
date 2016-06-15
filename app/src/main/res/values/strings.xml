@@ -2,6 +2,8 @@
     <string name="app_name">GUtils</string>
     <string name="message_come">消息来了</string>
 
+    <string name="qr_scan_tips">将二维码/条码放入框内，即可自动扫描</string>
+
     <array name="list">
         <item>测试列表文本</item>
         <item>测试列表文本</item>

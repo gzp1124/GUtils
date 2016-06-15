@@ -14,6 +14,7 @@ import com.example.gzp1124.gutils.fragments_for_test.HaveHeaderViewPagerFragment
 import com.example.gzp1124.gutils.fragments_for_test.MapTestFragment;
 import com.example.gzp1124.gutils.fragments_for_test.SendMyBroadFragment;
 import com.example.gzp1124.gutils.fragments_for_test.SocialTestFragment;
+import com.example.gzp1124.gutils.fragments_for_test.TestPrintFragment;
 import com.example.gzp1124.gutils.fragments_for_test.TimeTaskTestFragment;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("带有头布局的viewpager",new HaveHeaderViewPagerFragment());
         fragmentMap.put("发送自定义广播",new SendMyBroadFragment());
         fragmentMap.put("百度地图",new MapTestFragment());
+        fragmentMap.put("前后摄像头扫描二维码/条形码",new TestPrintFragment());
     }
 
     @Override

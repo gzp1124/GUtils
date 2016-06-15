@@ -48,7 +48,7 @@ public class GDateUtil {
         return cal.getTimeInMillis();
     }
 
-    /**
+    /**https://github.com/gzp1124/KJFrameForAndroid.git
      * 获取指定时间戳的日期对象
      * @param timestamp
      * @return

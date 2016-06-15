@@ -15,8 +15,6 @@ public class BaseApplication extends Application {
     public static Context gContext;
     public static Fragment showFragment;
 
-    //TODO 崩溃收集
-
     @Override
     public void onCreate() {
         super.onCreate();
