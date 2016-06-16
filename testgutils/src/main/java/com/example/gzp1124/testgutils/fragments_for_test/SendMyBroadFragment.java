@@ -1,4 +1,4 @@
-package com.example.gzp1124.gutils.fragments_for_test;
+package com.example.gzp1124.testgutils.fragments_for_test;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 
 import com.example.gzp1124.gutils.BaseFragment;
 import com.example.gzp1124.gutils.R;
-import com.example.gzp1124.gutils.utils.GTimeTaskUtil;
 import com.example.gzp1124.gutils.utils.GNotificationUtil;
+import com.example.gzp1124.gutils.utils.GTimeTaskUtil;
 
 /**
  * author：高志鹏 on 16/5/19 10:14

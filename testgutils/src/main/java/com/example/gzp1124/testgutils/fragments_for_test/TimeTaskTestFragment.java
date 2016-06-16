@@ -1,8 +1,7 @@
-package com.example.gzp1124.gutils.fragments_for_test;
+package com.example.gzp1124.testgutils.fragments_for_test;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import com.example.gzp1124.gutils.BaseFragment;
 import com.example.gzp1124.gutils.R;
 import com.example.gzp1124.gutils.utils.GDateUtil;
 import com.example.gzp1124.gutils.utils.GTimeTaskUtil;
-import com.example.gzp1124.gutils.utils.GToastUtil;
 
 import java.util.Date;
 

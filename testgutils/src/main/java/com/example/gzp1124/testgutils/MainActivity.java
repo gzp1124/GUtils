@@ -11,12 +11,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.gzp1124.gutils.BaseApplication;
-import com.example.gzp1124.gutils.fragments_for_test.HaveHeaderViewPagerFragment;
-import com.example.gzp1124.gutils.fragments_for_test.MapTestFragment;
-import com.example.gzp1124.gutils.fragments_for_test.SendMyBroadFragment;
-import com.example.gzp1124.gutils.fragments_for_test.SocialTestFragment;
-import com.example.gzp1124.gutils.fragments_for_test.TestPrintFragment;
-import com.example.gzp1124.gutils.fragments_for_test.TimeTaskTestFragment;
+import com.example.gzp1124.testgutils.fragments_for_test.HaveHeaderViewPagerFragment;
+import com.example.gzp1124.testgutils.fragments_for_test.MapTestFragment;
+import com.example.gzp1124.testgutils.fragments_for_test.SendMyBroadFragment;
+import com.example.gzp1124.testgutils.fragments_for_test.SocialTestFragment;
+import com.example.gzp1124.testgutils.fragments_for_test.TestPrintFragment;
+import com.example.gzp1124.testgutils.fragments_for_test.TimeTaskTestFragment;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

@@ -1,4 +1,4 @@
-package com.example.gzp1124.gutils.fragments_for_test;
+package com.example.gzp1124.testgutils.fragments_for_test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
