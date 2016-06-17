@@ -1,1 +1,1 @@
-include ':gutils', ':testgutils'
+include ':lib_gutils', ':testgutils', ':lib_log'

@@ -1,0 +1,31 @@
+<com.gzp1124.gutils.three_ui_widget.have_header_viewpager.HVTouchCallbackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:layout_marginTop="@dimen/hv_tabs_height"
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/hv_header_height_sum">
+
+        <RelativeLayout
+            android:id="@+id/header_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/hv_viewpager_header_height">
+        </RelativeLayout>
+
+        <com.gzp1124.gutils.three_ui_widget.have_header_viewpager.HVSlidingTabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:background="#883f3f3f"
+            android:layout_height="@dimen/hv_tabs_height"/>
+    </LinearLayout>
+
+</com.gzp1124.gutils.three_ui_widget.have_header_viewpager.HVTouchCallbackLayout>

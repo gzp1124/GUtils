@@ -1,11 +1,10 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.example.gzp1124.testgutils"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
@@ -20,10 +19,4 @@ android {
 }
 
 dependencies {
-    compile project(':lib_gutils')
-    compile project(':lib_log')
-
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.4.0'
-
 }

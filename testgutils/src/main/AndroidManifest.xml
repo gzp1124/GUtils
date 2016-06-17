@@ -7,16 +7,16 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".BaseApp"
+        android:name="com.gzp1124.testgutils.BaseApp"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.gzp1124.testgutils.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ShowActivity"/>
+        <activity android:name="com.gzp1124.testgutils.ShowActivity"/>
     </application>
 
 </manifest>

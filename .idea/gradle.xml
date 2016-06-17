@@ -9,14 +9,16 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/gutils" />
+            <option value="$PROJECT_DIR$/lib_gutils" />
+            <option value="$PROJECT_DIR$/lib_log" />
             <option value="$PROJECT_DIR$/testgutils" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/gutils" />
+            <option value="$PROJECT_DIR$/lib_gutils" />
+            <option value="$PROJECT_DIR$/lib_log" />
             <option value="$PROJECT_DIR$/testgutils" />
           </set>
         </option>
