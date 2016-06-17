@@ -15,6 +15,7 @@ import com.gzp1124.testgutils.fragments_for_test.HaveHeaderViewPagerFragment;
 import com.gzp1124.testgutils.fragments_for_test.MapTestFragment;
 import com.gzp1124.testgutils.fragments_for_test.SendMyBroadFragment;
 import com.gzp1124.testgutils.fragments_for_test.SocialTestFragment;
+import com.gzp1124.testgutils.fragments_for_test.TestBeepFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestPrintFragment;
 import com.gzp1124.testgutils.fragments_for_test.TimeTaskTestFragment;
 
@@ -32,6 +33,7 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("发送自定义广播",new SendMyBroadFragment());
         fragmentMap.put("百度地图",new MapTestFragment());
         fragmentMap.put("前后摄像头扫描二维码/条形码",new TestPrintFragment());
+        fragmentMap.put("测试震动",new TestBeepFragment());
     }
 
     @Override
