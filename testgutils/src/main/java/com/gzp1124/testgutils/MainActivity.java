@@ -17,6 +17,7 @@ import com.gzp1124.testgutils.fragments_for_test.SendMyBroadFragment;
 import com.gzp1124.testgutils.fragments_for_test.SocialTestFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestBeepFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestPrintFragment;
+import com.gzp1124.testgutils.fragments_for_test.TestTabStripFragment;
 import com.gzp1124.testgutils.fragments_for_test.TimeTaskTestFragment;
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("百度地图",new MapTestFragment());
         fragmentMap.put("前后摄像头扫描二维码/条形码",new TestPrintFragment());
         fragmentMap.put("测试震动",new TestBeepFragment());
+        fragmentMap.put("测试配合viewpager的tab选项卡",new TestTabStripFragment());
     }
 
     @Override
