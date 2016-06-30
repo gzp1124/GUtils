@@ -22,6 +22,13 @@ public class BaseApplication extends Application {
 
         boolean b = GSocialUtil.getShareInstance().regWX();
         showToast(b+"注册");
+
+        initException();
+    }
+
+    private void initException() {
+        Thread.setDefaultUncaughtExceptionHandler(AppException
+                .getAppExceptionHandler(this));
     }
 
     public static void showToast(String content){

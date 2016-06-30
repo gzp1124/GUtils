@@ -1,11 +1,21 @@
 package com.gzp1124.gutils;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
+import android.os.Looper;
+import android.support.v7.app.AlertDialog;
+import android.text.Html;
 
+import com.gzp1124.gutils.utils.GDateUtil;
+import com.gzp1124.gutils.utils.GFileUtil;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.Thread.UncaughtExceptionHandler;
@@ -141,47 +151,71 @@ public class AppException extends Exception implements UncaughtExceptionHandler 
             return false;
         }
         boolean success = true;
-//        try {
-//            success = saveToSDCard(ex);
-//        } catch (Exception e) {
-//        } finally {
-//            if (!success) {
-//                return false;
-//            } else {
-//                final Context context = AppManager.getAppManager()
-//                        .currentActivity();
-//                // 显示异常信息&发送报告
-//                new Thread() {
-//                    @Override
-//                    public void run() {
-//                        Looper.prepare();
-//                        // 拿到未捕获的异常，
-//                        UIHelper.sendAppCrashReport(context);
-//                        Looper.loop();
-//                    }
-//                }.start();
-//            }
-//        }
+        try {
+            success = saveToSDCard(ex);
+        } catch (Exception e) {
+        } finally {
+            if (!success) {
+                return false;
+            } else {
+                final Context context = AppManager.getAppManager()
+                        .currentActivity();
+                // 显示异常信息&发送报告
+                new Thread() {
+                    @Override
+                    public void run() {
+                        Looper.prepare();
+                        // 拿到未捕获的异常，
+                        getConfirmDialog(context, "程序发生异常12s", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                // 退出
+                                System.exit(-1);
+                            }
+                        }).show();
+                        Looper.loop();
+                    }
+                }.start();
+            }
+        }
         return true;
+    }
+
+    public static AlertDialog.Builder getConfirmDialog(Context context, String message, DialogInterface.OnClickListener onClickListener) {
+        AlertDialog.Builder builder = getDialog(context);
+        builder.setMessage(Html.fromHtml(message));
+        builder.setPositiveButton("确定", onClickListener);
+        builder.setNegativeButton("取消", null);
+        return builder;
+    }
+
+    /***
+     * 获取一个dialog
+     * @param context
+     * @return
+     */
+    public static AlertDialog.Builder getDialog(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        return builder;
     }
 
     private boolean saveToSDCard(Throwable ex) throws Exception {
         boolean append = false;
-//        File file = FileUtils.getSaveFile("AiXinTrip", "aixin.txt");
-//        if (System.currentTimeMillis() - file.lastModified() > 5000) {
-//            append = true;
-//        }
-//        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(
-//                file, append)));
-//        // 导出发生异常的时间
-//        pw.println(SystemTool.getDataTime("yyyy-MM-dd-HH-mm-ss"));
-//        // 导出手机信息
-//        dumpPhoneInfo(pw);
-//        pw.println();
-//        // 导出异常的调用栈信息
-//        ex.printStackTrace(pw);
-//        pw.println();
-//        pw.close();
+        File file = GFileUtil.getSaveFile("gzp1124", "aixin.txt");
+        if (System.currentTimeMillis() - file.lastModified() > 5000) {
+            append = true;
+        }
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(
+                file, append)));
+        // 导出发生异常的时间
+        pw.println(/*SystemTool.getDataTime("yyyy-MM-dd-HH-mm-ss")*/GDateUtil.getCurrentFormatData(GDateUtil.TIME_FORMAT_CN));
+        // 导出手机信息
+        dumpPhoneInfo(pw);
+        pw.println();
+        // 导出异常的调用栈信息
+        ex.printStackTrace(pw);
+        pw.println();
+        pw.close();
         return append;
     }
 

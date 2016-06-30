@@ -124,6 +124,16 @@ public class GDateUtil {
     }
 
     /**
+     * 获取当前格式化话后的时间
+     * @param format
+     * @return
+     */
+    public static String getCurrentFormatData(String format){
+        Date date = new Date();
+        return getFormatDate(date,format);
+    }
+
+    /**
      * 将2007-12-1变成2007-12-01。将2007-9-1变为2007-09-01。
      *
      * @param date

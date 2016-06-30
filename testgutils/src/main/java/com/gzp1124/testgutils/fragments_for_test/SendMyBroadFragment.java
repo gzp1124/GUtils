@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.gzp1124.testgutils.R;
 import com.gzp1124.gutils.BaseFragment;
-import com.gzp1124.gutils.R;
 import com.gzp1124.gutils.utils.GNotificationUtil;
 import com.gzp1124.gutils.utils.GTimeTaskUtil;
 

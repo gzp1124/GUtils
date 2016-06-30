@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.gzp1124.testgutils.R;
 import com.gzp1124.gutils.BaseApplication;
 import com.gzp1124.gutils.BaseFragment;
 import com.gzp1124.testgutils.ShowActivity;
@@ -20,8 +21,7 @@ public class TestTabStripMoreFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        return inflater.inflate(com.gzp1124.gutils.R.layout.test_tabstrip_fragment,null);
+        return inflater.inflate(R.layout.test_tabstrip_fragment,null);
     }
 
 }

@@ -27,6 +27,6 @@ public class ShowActivity extends FragmentActivity {
         tx.add(R.id.content_fragment,BaseApp.showFragment ,"showFragment");
         tx.commit();
 
-        GSocialUtil.getShareInstance().regWX();
+//        GSocialUtil.getShareInstance().regWX();
     }
 }

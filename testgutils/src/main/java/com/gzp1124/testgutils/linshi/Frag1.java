@@ -1,23 +1,23 @@
-package com.gzp1124.testgutils.fragments_for_test;
+package com.gzp1124.testgutils.linshi;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.gzp1124.testgutils.R;
-import com.gzp1124.gutils.BaseFragment;
+import android.widget.TextView;
 
 /**
- * author：高志鹏 on 16/6/24 18:43
+ * author：高志鹏 on 16/6/30 16:36
  * email:imbagaozp@163.com
  */
-public class TestTabStripOneFragment extends BaseFragment {
-
+public class Frag1 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.test_tabstrip_fragment,null);
+        TextView textView = new TextView(getContext());
+        textView.setText("11111");
+        return textView;
     }
 }

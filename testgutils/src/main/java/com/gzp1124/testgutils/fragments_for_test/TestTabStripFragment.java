@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.gzp1124.testgutils.R;
 import com.gzp1124.gutils.BaseApplication;
 import com.gzp1124.gutils.BaseFragment;
 import com.gzp1124.testgutils.ShowActivity;
@@ -15,20 +16,32 @@ import com.gzp1124.testgutils.ShowActivity;
  * author：高志鹏 on 16/6/24 18:43
  * email:imbagaozp@163.com
  */
-public class TestTabStripFragment extends BaseFragment {
+public class TestTabStripFragment extends BaseFragment implements View.OnClickListener {
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(com.gzp1124.gutils.R.layout.test_tabstrip_fragment,null);
+    protected void initViews() {
+        super.initViews();
+        gView.findViewById(R.id.one).setOnClickListener(this);
+        gView.findViewById(R.id.more).setOnClickListener(this);
     }
 
-    public void one(View view){
-        BaseApplication.showFragment = new TestTabStripOneFragment();
-        getActivity().startActivity(new Intent(getActivity(), ShowActivity.class));
+    @Override
+    protected int getLayoutId() {
+        return R.layout.test_tabstrip_fragment;
     }
-    public void more(View view){
-        BaseApplication.showFragment = new TestTabStripMoreFragment();
-        getActivity().startActivity(new Intent(getActivity(), ShowActivity.class));
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.one:
+                BaseApplication.showFragment = new TestTabStripOneFragment();
+                getActivity().startActivity(new Intent(getActivity(), ShowActivity.class));
+                break;
+            case R.id.more:
+                BaseApplication.showFragment = new TestTabStripMoreFragment();
+                getActivity().startActivity(new Intent(getActivity(), ShowActivity.class));
+                break;
+
+        }
     }
 }
