@@ -2,7 +2,6 @@ package com.gzp1124.testgutils.linshi;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.gzp1124.lib_ui.FragmentTabHostTabFragment;
+import com.gzp1124.lib_ui.fragment_tab_host.FragmentTabHostTabFragment;
 import com.gzp1124.log.GLog;
 
 import java.util.ArrayList;

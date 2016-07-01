@@ -9,7 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.gzp1124.lib_ui.MainFragmentTabHostFragment;
+import com.gzp1124.lib_ui.bottomnavigation.BottomNavigationFragment;
+import com.gzp1124.lib_ui.fragment_tab_host.MainFragmentTabHostFragment;
 
 /**
  * author：高志鹏 on 16/6/30 16:36
@@ -26,7 +27,7 @@ public class Frag2 extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainFragmentTabHostFragment.setSelect(2);
+//                BottomNavigationFragment.setSelect(2);
             }
         });
         return button;

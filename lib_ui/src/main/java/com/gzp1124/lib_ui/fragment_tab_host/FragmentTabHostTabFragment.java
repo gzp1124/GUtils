@@ -1,4 +1,4 @@
-package com.gzp1124.lib_ui;
+package com.gzp1124.lib_ui.fragment_tab_host;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -6,8 +6,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:tag="frag1"
-        class="com.gzp1124.lib_ui.fragment_tab_host.MainFragmentTabHostFragment"
+        android:tag="bottom_main"
+        class="com.gzp1124.lib_ui.bottomnavigation.BottomNavigationFragment"
         />
-
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.gzp1124.lib_ui.widget;
+package com.gzp1124.lib_ui.fragment_tab_host;
 
 import android.content.Context;
 import android.content.res.TypedArray;

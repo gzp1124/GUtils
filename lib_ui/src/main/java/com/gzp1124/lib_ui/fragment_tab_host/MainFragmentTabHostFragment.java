@@ -1,4 +1,4 @@
-package com.gzp1124.lib_ui;
+package com.gzp1124.lib_ui.fragment_tab_host;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-import com.gzp1124.lib_ui.widget.MyFragmentTabHost;
+import com.gzp1124.lib_ui.R;
 
 /**
  * 可独立使用的fragmentTabHost
@@ -39,26 +39,17 @@ public class MainFragmentTabHostFragment extends Fragment{
     private TextView tabTextView;
     private static boolean isHaveTabText = true;
 
-    /**
-     * 设置选中
-     * @param index
-     */
+    /**设置选中*/
     public static void setSelect(int index){
         if (index < mTabHost.getTabWidget().getChildCount()) {
             mTabHost.setCurrentTab(index);
         }
     }
-
-    /**
-     * 设置背景色
-     */
+    /**设置背景色*/
     public static void setBGColor(String color){
         bgColor = color;
     }
-
-    /**
-     * 设置tab文本选中和未选中的颜色
-     */
+    /**设置tab文本选中和未选中的颜色*/
     public static void setTabTextColor(String selectColor,String noSelectColor){
         tabTextselectColor = selectColor;
         tabTextNoSelectColor = noSelectColor;
