@@ -36,8 +36,8 @@ public abstract class FragmentTabHostTabFragment extends Fragment {
         return mViewContent;
     }
 
-    /**设置布局id*/
+    /**设置布局id  优先使用layoutView,然后使用layoutId */
     public abstract int getLayoutId();
-    /**设置布局View*/
+    /**设置布局View 优先使用该View,然后使用layoutId */
     public abstract View getLayoutView();
 }
