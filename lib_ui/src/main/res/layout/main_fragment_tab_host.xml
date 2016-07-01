@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.app.FragmentTabHost
+<com.gzp1124.lib_ui.widget.MyFragmentTabHost
     android:id="@android:id/tabhost"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -24,4 +24,4 @@
 
     </LinearLayout>
 
-</android.support.v4.app.FragmentTabHost>
+</com.gzp1124.lib_ui.widget.MyFragmentTabHost>

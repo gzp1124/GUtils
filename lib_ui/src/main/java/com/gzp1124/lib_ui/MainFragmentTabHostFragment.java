@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.gzp1124.lib_ui.widget.MyFragmentTabHost;
+
 /**
  * 可独立使用的fragmentTabHost
  *
@@ -24,7 +26,7 @@ import android.widget.TextView;
 public class MainFragmentTabHostFragment extends Fragment{
 
     private View rootView;
-    static FragmentTabHost mTabHost;
+    static MyFragmentTabHost mTabHost;
     //tab 图标集
     static int[] mImages = null;
     //tab 图标对应的文本提示
@@ -93,9 +95,9 @@ public class MainFragmentTabHostFragment extends Fragment{
     }
 
     private void initViews() {
-        mTabHost = (FragmentTabHost) rootView.findViewById(android.R.id.tabhost);
+        mTabHost = (MyFragmentTabHost) rootView.findViewById(android.R.id.tabhost);
         mTabHost.setup(getContext(), getActivity().getSupportFragmentManager(), android.R.id.tabcontent);
-//        mTabHost.getTabWidget().setDividerDrawable(null); // 去掉分割线
+        mTabHost.getTabWidget().setDividerDrawable(null); // 去掉分割线
         mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
