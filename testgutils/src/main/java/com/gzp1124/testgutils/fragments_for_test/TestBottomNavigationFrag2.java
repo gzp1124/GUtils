@@ -37,8 +37,8 @@ public class TestBottomNavigationFrag2 extends BaseFragment {
                 mBackgroundStyle);
     }
 
-    static BottomNavigationFragment2.Mode mMode;
-    static BottomNavigationFragment2.BackgroundStyle mBackgroundStyle;
+    static BottomNavigationFragment2.Mode mMode = BottomNavigationFragment2.Mode.MODE_DEFAULT;
+    static BottomNavigationFragment2.BackgroundStyle mBackgroundStyle = BottomNavigationFragment2.BackgroundStyle.BACKGROUND_STYLE_DEFAULT;
     public static void setMB(BottomNavigationFragment2.Mode mode,BottomNavigationFragment2.BackgroundStyle backgroundStyle){
         mMode = mode;
         mBackgroundStyle = backgroundStyle;
