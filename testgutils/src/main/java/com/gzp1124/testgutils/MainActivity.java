@@ -15,6 +15,8 @@ import com.gzp1124.testgutils.fragments_for_test.HaveHeaderViewPagerFragment;
 import com.gzp1124.testgutils.fragments_for_test.MapTestFragment;
 import com.gzp1124.testgutils.fragments_for_test.SendMyBroadFragment;
 import com.gzp1124.testgutils.fragments_for_test.SocialTestFragment;
+import com.gzp1124.testgutils.fragments_for_test.TestBottomN2;
+import com.gzp1124.testgutils.fragments_for_test.TestBottomNavigationFrag2;
 import com.gzp1124.testgutils.fragments_for_test.TestBeepFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestBottomNavigationFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestFragmentTabHost;
@@ -40,6 +42,7 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("测试配合viewpager的tab选项卡",new TestTabStripFragment());
         fragmentMap.put("测试抽取的fragmenttabhost的使用",new TestFragmentTabHost());
         fragmentMap.put("测试抽取的bottomnavigation",new TestBottomNavigationFragment());
+        fragmentMap.put("测试多样式的bottomnavigation",new TestBottomN2());
     }
 
     @Override

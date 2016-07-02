@@ -75,6 +75,7 @@ public class BottomNavigationFragment extends Fragment{
 
     private static BottomNavigationBar bottomLayout;
     private Fragment currentShowFragment = null;
+    private int currentSelectIndex = -1;
     public void setUpBottomNavigationBar() {
         if (mFragments == null){
             throw new RuntimeException("MainFragmentTabHostFragment : 请先设置数据");
@@ -89,6 +90,12 @@ public class BottomNavigationFragment extends Fragment{
         bottomLayout.setOnTabListener(new BottomNavigationBar.TabListener() {
             @Override
             public void onSelected(BottomBarTab tab, int position) {
+                if (currentSelectIndex == position){
+                    //重复点击，可以在这里做刷新操作
+                    return;
+                }else {
+                    currentSelectIndex = position;
+                }
                 Fragment fragment = null;
                 try {
                     if (showFragments[position]==null) {
