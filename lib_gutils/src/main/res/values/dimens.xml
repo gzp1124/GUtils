@@ -3,8 +3,5 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <!--have header viewpager-->
-    <dimen name="hv_tabs_height">48dp</dimen>
-    <dimen name="hv_viewpager_header_height">144dp</dimen>
-    <dimen name="hv_header_height_sum">192dp</dimen>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.gzp1124.gutils.three_ui_widget.have_header_viewpager;
+package com.gzp1124.lib_ui.have_header_viewpager;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.gzp1124.gutils.R;
+import com.gzp1124.lib_ui.R;
 
 
 /**

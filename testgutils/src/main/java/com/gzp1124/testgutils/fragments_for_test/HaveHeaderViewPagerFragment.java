@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import com.gzp1124.gutils.BaseFragment;
 import com.gzp1124.gutils.R;
-import com.gzp1124.gutils.three_ui_widget.have_header_viewpager.GHaveHeaderViewpagerUtil;
-import com.gzp1124.gutils.three_ui_widget.have_header_viewpager.HVFragment;
-import com.gzp1124.gutils.three_ui_widget.have_header_viewpager.HVMyListFragment;
-import com.gzp1124.gutils.three_ui_widget.have_header_viewpager.HVMyScrollFragment;
+import com.gzp1124.lib_ui.have_header_viewpager.GHaveHeaderViewpagerUtil;
+import com.gzp1124.lib_ui.have_header_viewpager.HVFragment;
+import com.gzp1124.lib_ui.have_header_viewpager.HVMyListFragment;
+import com.gzp1124.lib_ui.have_header_viewpager.HVMyScrollFragment;
 
 import java.util.LinkedHashMap;
 

@@ -1,4 +1,4 @@
-package com.gzp1124.gutils.three_ui_widget.have_header_viewpager;
+package com.gzp1124.lib_ui.have_header_viewpager;
 
 import android.graphics.Rect;
 import android.view.MotionEvent;

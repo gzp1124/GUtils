@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.gzp1124.gutils.three_ui_widget.have_header_viewpager;
+package com.gzp1124.lib_ui.have_header_viewpager;
 
 import android.app.Activity;
 import android.content.Context;
@@ -43,7 +43,7 @@ import java.util.ArrayList;
  * the user's scroll progress.
  * <p>
  * To use the component, simply add it to your view hierarchy. Then in your
- * {@link android.app.Activity} or {@link android.support.v4.app.Fragment} call
+ * {@link Activity} or {@link android.support.v4.app.Fragment} call
  * {@link #setViewPager(ViewPager,Activity)} providing it the ViewPager this layout is being used for.
  * <p>
  * The colors can be customized in two ways. The first and simplest is to provide an array of

@@ -1,4 +1,4 @@
-<com.gzp1124.gutils.three_ui_widget.have_header_viewpager.HVTouchCallbackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.gzp1124.lib_ui.have_header_viewpager.HVTouchCallbackLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -21,11 +21,11 @@
             android:layout_height="@dimen/hv_viewpager_header_height">
         </RelativeLayout>
 
-        <com.gzp1124.gutils.three_ui_widget.have_header_viewpager.HVSlidingTabLayout
+        <com.gzp1124.lib_ui.have_header_viewpager.HVSlidingTabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:background="#883f3f3f"
             android:layout_height="@dimen/hv_tabs_height"/>
     </LinearLayout>
 
-</com.gzp1124.gutils.three_ui_widget.have_header_viewpager.HVTouchCallbackLayout>
+</com.gzp1124.lib_ui.have_header_viewpager.HVTouchCallbackLayout>

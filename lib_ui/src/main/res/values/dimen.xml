@@ -55,4 +55,10 @@
     <dimen name="shifting_icon_grid">24dp</dimen>
     <dimen name="shifting_icon_badge_grid_height">36dp</dimen>
     <dimen name="shifting_icon_badge_grid_width">48dp</dimen>
+
+    <!--have header viewpager-->
+    <dimen name="hv_tabs_height">48dp</dimen>
+    <dimen name="hv_viewpager_header_height">144dp</dimen>
+    <dimen name="hv_header_height_sum">192dp</dimen>
+
 </resources>

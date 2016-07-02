@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.gzp1124.gutils.three_ui_widget.have_header_viewpager;
+package com.gzp1124.lib_ui.have_header_viewpager;
 
 import android.content.Context;
 import android.graphics.Canvas;

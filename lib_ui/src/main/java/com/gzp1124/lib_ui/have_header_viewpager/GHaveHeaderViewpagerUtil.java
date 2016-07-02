@@ -1,4 +1,4 @@
-package com.gzp1124.gutils.three_ui_widget.have_header_viewpager;
+package com.gzp1124.lib_ui.have_header_viewpager;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -14,8 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.gzp1124.gutils.R;
+import com.gzp1124.lib_ui.R;
 
 import java.util.LinkedHashMap;
 
