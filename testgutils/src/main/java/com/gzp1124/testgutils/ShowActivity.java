@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-import com.example.gzp1124.testgutils.R;
+import com.gzp1124.testgutils.R;
 import com.gzp1124.gutils.three_platform.social.GSocialUtil;
 import com.gzp1124.gutils.utils.GToastUtil;
 

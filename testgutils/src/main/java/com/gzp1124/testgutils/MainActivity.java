@@ -16,11 +16,12 @@ import com.gzp1124.testgutils.fragments_for_test.MapTestFragment;
 import com.gzp1124.testgutils.fragments_for_test.SendMyBroadFragment;
 import com.gzp1124.testgutils.fragments_for_test.SocialTestFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestBottomN2;
-import com.gzp1124.testgutils.fragments_for_test.TestBottomNavigationFrag2;
 import com.gzp1124.testgutils.fragments_for_test.TestBeepFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestBottomNavigationFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestFragmentTabHost;
 import com.gzp1124.testgutils.fragments_for_test.TestPrintFragment;
+import com.gzp1124.testgutils.fragments_for_test.TestTabLayoutFragment1;
+import com.gzp1124.testgutils.fragments_for_test.TestTabLayout_ALL;
 import com.gzp1124.testgutils.fragments_for_test.TestTabStripFragment;
 import com.gzp1124.testgutils.fragments_for_test.TimeTaskTestFragment;
 
@@ -43,6 +44,8 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("测试抽取的fragmenttabhost的使用",new TestFragmentTabHost());
         fragmentMap.put("测试抽取的bottomnavigation",new TestBottomNavigationFragment());
         fragmentMap.put("测试多样式的bottomnavigation",new TestBottomN2());
+        fragmentMap.put("tablayout合集，可实现顶部底部导航栏",new TestTabLayout_ALL());
+        fragmentMap.put("tablayout实际使用示例1：顶部导航",new TestTabLayoutFragment1());
     }
 
     @Override

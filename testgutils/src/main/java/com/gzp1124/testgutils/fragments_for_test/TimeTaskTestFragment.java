@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.gzp1124.testgutils.R;
+import com.gzp1124.testgutils.R;
 import com.gzp1124.gutils.BaseFragment;
 import com.gzp1124.gutils.utils.GDateUtil;
 import com.gzp1124.gutils.utils.GTimeTaskUtil;

@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.gzp1124.testgutils.R;
+import com.gzp1124.testgutils.R;
 import com.gzp1124.gutils.BaseFragment;
 import com.gzp1124.lib_ui.have_header_viewpager.GHaveHeaderViewpagerFragment;
 import com.gzp1124.lib_ui.have_header_viewpager.HVFragment;

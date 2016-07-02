@@ -3,7 +3,7 @@ package com.gzp1124.testgutils.fragments_for_test;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import com.example.gzp1124.testgutils.R;
+import com.gzp1124.testgutils.R;
 import com.gzp1124.gutils.BaseFragment;
 import com.gzp1124.lib_ui.fragment_tab_host.MainFragmentTabHostFragment;
 import com.gzp1124.testgutils.linshi.Frag1;
