@@ -9,9 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.gzp1124.testgutils.R;
 import com.gzp1124.gutils.BaseFragment;
-import com.gzp1124.gutils.R;
-import com.gzp1124.lib_ui.have_header_viewpager.GHaveHeaderViewpagerUtil;
+import com.gzp1124.lib_ui.have_header_viewpager.GHaveHeaderViewpagerFragment;
 import com.gzp1124.lib_ui.have_header_viewpager.HVFragment;
 import com.gzp1124.lib_ui.have_header_viewpager.HVMyListFragment;
 import com.gzp1124.lib_ui.have_header_viewpager.HVMyScrollFragment;
@@ -23,18 +23,9 @@ import java.util.LinkedHashMap;
  * email:imbagaozp@163.com
  */
 public class HaveHeaderViewPagerFragment extends BaseFragment {
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        /**
-         * 基本使用：
-         * 1. 创建GHaveHeaderViewpagerUtil对象
-         * 2. 设置tab和fragment的map键值对组合，tab名称不能重复
-         * 3. 设置tab 的背景，header的头部view，tab和header的共同背景，等
-         * 4. 调用getRootView获取构建好的带有头部的viewpager，可以直接设置到界面上显示出来，或者用页面已存在的view调用addview将该view显示出来
-         *
-         */
-        GHaveHeaderViewpagerUtil ghvUtil = new GHaveHeaderViewpagerUtil(getActivity());
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         LinkedHashMap<String,HVFragment.FullContentView> map = new LinkedHashMap<>();
         map.put("货架",new HVMyScrollFragment.FullScrollview(){
 
@@ -59,14 +50,18 @@ public class HaveHeaderViewPagerFragment extends BaseFragment {
 //                        android.R.id.text1,getResources().getStringArray(R.array.list)));
             }
         });
-        ghvUtil.setTabfragments(map);
+        GHaveHeaderViewpagerFragment.setTabfragments(map);
 
-//        ghvUtil.setmyAddHeaderView(View.inflate(getActivity(),R.layout.hh,null));
+//        GHaveHeaderViewpagerFragment.setmyAddHeaderView(View.inflate(getActivity(),R.layout.hh,null));
 
-        ghvUtil.setTabBGColor("#33ff0000");
+        GHaveHeaderViewpagerFragment.setTabBGColor("#33ff0000");
 
-        ghvUtil.setTabHeaderBackground(getResources().getDrawable(R.drawable.test));
+        GHaveHeaderViewpagerFragment.setTabHeaderBackground(getResources().getDrawable(R.drawable.test));
+    }
 
-        return ghvUtil.getRootView();
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.test_have_header_viewpager_fragment,null);
     }
 }

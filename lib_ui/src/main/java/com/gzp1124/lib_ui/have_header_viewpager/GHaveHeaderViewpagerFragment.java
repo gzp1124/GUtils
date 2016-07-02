@@ -2,6 +2,8 @@ package com.gzp1124.lib_ui.have_header_viewpager;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -9,7 +11,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,71 +25,44 @@ import java.util.LinkedHashMap;
 /**
  * 带有头布局的ViewPager
  *
- *
- * 基本使用：
-        GHaveHeaderViewpager ghvUtil = new G.....;
-         LinkedHashMap<String,HVFragment.FullContentView> map = new LinkedHashMap<>();
-         map.put("第一个",new HVMyScrollFragment.FullScrollview(){
-
-        @Override
-        public View fullSCrollview() {
-        TextView textView = new TextView(Activity.this);
-        textView.setText("拉开纠纷的");
-        return textView;
-        }
-        });
-         map.put("来一个6空得listview", new HVMyListFragment.FullListView() {
-        @Override
-        public void fullListView(ListView listView) {
-        listView.setAdapter(new ArrayAdapter<String >(Activity.this,android.R.layout.simple_list_item_1,
-        android.R.id.text1,getResources().getStringArray(R.array.list)));
-        }
-        });
-         ghvUtil.setTabfragments(map);
-
-         ghvUtil.setmyAddHeaderView(View.inflate(Activity.this,R.layout.hh,null));
-
-         ghvUtil.setTabBGColor("#33ff0000");
-
-         ghvUtil.setTabHeaderBackground(getResources().getDrawable(R.drawable.ab));
-
-         setContentView(ghvUtil.getRootView());
- *
- *
- *
  * author：高志鹏 on 16/6/2 13:37
  * email:imbagaozp@163.com
  */
-public class GHaveHeaderViewpagerUtil {
+public class GHaveHeaderViewpagerFragment extends Fragment{
     //tab的高度
     private int mTabHeight;
     //header的高度
     private int mHeaderHeight;
-    private FragmentActivity mActivity;
     private SparseArrayCompat<HVScrollableListener> mScrollableListenerArrays;
     private HVViewPagerHeaderHelper.MyScrollable myScrollable;
 
-    private LinkedHashMap<String,? extends HVFragment.FullContentView> tabfragments;
+    private static LinkedHashMap<String,? extends HVFragment.FullContentView> tabfragments;
     //header layout
     private View mHeaderLayoutView;
     //tab layout
     private HVSlidingTabLayout slidingTabLayout;
-
-    public GHaveHeaderViewpagerUtil(FragmentActivity activity) {
-        mActivity = activity;
-        mTabHeight = activity.getResources().getDimensionPixelSize(R.dimen.hv_tabs_height);
-        mHeaderHeight = activity.getResources().getDimensionPixelSize(R.dimen.hv_viewpager_header_height);
-        mScrollableListenerArrays = new SparseArrayCompat<>();
-    }
-
+    private View rootView;
 
     String [] tabNames;
 
-    public View getRootView() {
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        rootView = View.inflate(getContext(), R.layout.have_header_viewpager_show_main,null);
+
+        mTabHeight = getActivity().getResources().getDimensionPixelSize(R.dimen.hv_tabs_height);
+        mHeaderHeight = getActivity().getResources().getDimensionPixelSize(R.dimen.hv_viewpager_header_height);
+        mScrollableListenerArrays = new SparseArrayCompat<>();
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         String res = checkData();
         if (!TextUtils.isEmpty(res)){
-            Toast.makeText(mActivity,res,Toast.LENGTH_SHORT).show();
-            return null;
+            Toast.makeText(getContext(),res,Toast.LENGTH_SHORT).show();
+            return ;
         }
 
         int i = 0;
@@ -94,8 +71,6 @@ public class GHaveHeaderViewpagerUtil {
                 tabfragments.keySet()) {
             tabNames[i++] = s;
         }
-
-        View view = View.inflate(mActivity, R.layout.have_header_viewpager_show_main,null);
         HVTouchCallbackLayout touchCallbackLayout = (HVTouchCallbackLayout) view.findViewById(R.id.layout);
 
         mHeaderLayoutView = view.findViewById(R.id.header);
@@ -104,7 +79,7 @@ public class GHaveHeaderViewpagerUtil {
         if (myAddHeaderView != null){
             header_content.addView(myAddHeaderView);
         }else {
-            TextView textView = new TextView(mActivity);
+            TextView textView = new TextView(getContext());
             textView.setText("没有设置headerview布局");
             header_content.addView(textView);
         }
@@ -114,12 +89,11 @@ public class GHaveHeaderViewpagerUtil {
 
         ViewPager mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
 
-        HVViewPagerHeaderHelper helper = new HVViewPagerHeaderHelper(mActivity, mScrollableListenerArrays,mViewPager, mHeaderLayoutView,mTabHeight,mHeaderHeight,touchCallbackLayout);
+        HVViewPagerHeaderHelper helper = new HVViewPagerHeaderHelper(getContext(), mScrollableListenerArrays,mViewPager, mHeaderLayoutView,mTabHeight,mHeaderHeight,touchCallbackLayout);
 
         myScrollable = helper.getMyScrollable();
-        mViewPager.setAdapter(new ViewPagerAdapter(mActivity.getSupportFragmentManager()));
-        slidingTabLayout.setViewPager(mViewPager,mActivity);
-        return view;
+        mViewPager.setAdapter(new ViewPagerAdapter(getActivity().getSupportFragmentManager()));
+        slidingTabLayout.setViewPager(mViewPager,getActivity());
     }
 
     private class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -159,31 +133,30 @@ public class GHaveHeaderViewpagerUtil {
     }
 
     //======== 外部set Data ==========
-    private View myAddHeaderView;
-    private String TabLayoutColor;
-    private String TabTextColor;
-    private Drawable mHeaderLayoutViewDrawable;
+    private static View myAddHeaderView;
+    private static String TabLayoutColor;
+    private static String TabTextColor;
+    private static Drawable mHeaderLayoutViewDrawable;
     /**
      * 设置tab和Fragment对应
-     * @param tabfragments  键为tab名称， 值为 FullListView 或 FullScrollView 的实现类
      */
-    public void setTabfragments(LinkedHashMap<String,? extends HVFragment.FullContentView> tabfragments){
-        this.tabfragments = tabfragments;
+    public static void setTabfragments(LinkedHashMap<String,? extends HVFragment.FullContentView> tabf){
+        tabfragments = tabf;
     }
 
-    public void setmyAddHeaderView(View headerLayoutView){
+    public static void setmyAddHeaderView(View headerLayoutView){
         myAddHeaderView = headerLayoutView;
     }
 
-    public void setTabBGColor(String color){
+    public static void setTabBGColor(String color){
         TabLayoutColor = color;
     }
 
-    public void setTabTextColor(String color){
+    public static void setTabTextColor(String color){
         TabTextColor = color;
     }
 
-    public void setTabHeaderBackground(Drawable drawable){
+    public static void setTabHeaderBackground(Drawable drawable){
         mHeaderLayoutViewDrawable = drawable;
     }
 
@@ -192,6 +165,7 @@ public class GHaveHeaderViewpagerUtil {
         String res = "";
         if (tabfragments == null || tabfragments.size() == 0){
             res = "GUtil 中的tabfragment没有设置";
+            throw new RuntimeException("GUtil 中的tabfragment没有设置");
         }
         return res;
     }
