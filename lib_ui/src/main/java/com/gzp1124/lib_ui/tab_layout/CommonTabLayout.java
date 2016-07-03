@@ -241,9 +241,9 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
                 int position = (Integer) v.getTag();
                 if (mCurrentTab != position) {
                     setCurrentTab(position);
-                    if (mListener != null) {
-                        mListener.onTabSelect(position);
-                    }
+//                    if (mListener != null) {
+//                        mListener.onTabSelect(position);
+//                    }
                 } else {
                     if (mListener != null) {
                         mListener.onTabReselect(position);
@@ -487,6 +487,9 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
             calcOffset();
         } else {
             invalidate();
+        }
+        if (mListener != null) {
+            mListener.onTabSelect(currentTab);
         }
     }
 

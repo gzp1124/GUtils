@@ -38,6 +38,14 @@ public class TabLayoutUpFragmentVP1 extends Fragment{
         mFragments = fragments;
     }
 
+    private static SlidingTabLayout tab;
+    /**
+     *提供外部获取TabLayout的方法，方便fragment中进行tab操作
+     */
+    public static SlidingTabLayout getTabLayout(){
+        return tab;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,6 +65,8 @@ public class TabLayoutUpFragmentVP1 extends Fragment{
         tabLayout.setViewPager(vp);
 
         vp.setCurrentItem(4);
+
+        tab = tabLayout;
     }
 
     private class MyPagerAdapter extends FragmentPagerAdapter {

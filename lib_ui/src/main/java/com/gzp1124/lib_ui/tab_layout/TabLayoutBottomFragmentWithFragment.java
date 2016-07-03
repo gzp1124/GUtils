@@ -27,6 +27,13 @@ public class TabLayoutBottomFragmentWithFragment extends Fragment {
     private static Fragment[] mFragments;
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
     private CommonTabLayout mTabLayout;
+    private static CommonTabLayout tab;
+    /**
+     *提供外部获取TabLayout的方法，方便fragment中进行tab操作
+     */
+    public static CommonTabLayout getTabLayout(){
+        return tab;
+    }
 
     public static void setAllDatas(String[] titles,Fragment[] fragments,int[] iconSelectIds,int[] iconUnselectIds){
         mTitles = titles;
@@ -67,5 +74,6 @@ public class TabLayoutBottomFragmentWithFragment extends Fragment {
             }
         });
         tabLayout.setCurrentTab(2);
+        tab = tabLayout;
     }
 }

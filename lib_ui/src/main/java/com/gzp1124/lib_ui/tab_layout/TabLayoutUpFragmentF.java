@@ -25,11 +25,17 @@ public class TabLayoutUpFragmentF extends Fragment {
 
     private static Fragment[] mFragments;
 
-    private SegmentTabLayout mTabLayout;
-
     public static void setAllDatas(String[] titls,Fragment[] fragments){
         mTitles = titls;
         mFragments = fragments;
+    }
+
+    private static SegmentTabLayout tab;
+    /**
+     *提供外部获取TabLayout的方法，方便fragment中进行tab操作
+     */
+    public static SegmentTabLayout getTabLayout(){
+        return tab;
     }
 
     @Nullable
@@ -48,5 +54,6 @@ public class TabLayoutUpFragmentF extends Fragment {
             fs.add(f);
         }
         tabLayout.setTabData(mTitles, getActivity(), R.id.content_fragment, fs);
+        tab = tabLayout;
     }
 }

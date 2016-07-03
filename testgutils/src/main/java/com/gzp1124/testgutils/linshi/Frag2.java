@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.lib_ui.bottomnavigation.BottomNavigationFragment;
 import com.gzp1124.lib_ui.fragment_tab_host.MainFragmentTabHostFragment;
+import com.gzp1124.lib_ui.tab_layout.CommonTabLayout;
+import com.gzp1124.lib_ui.tab_layout.TabLayoutBottomFragmentWithViewPager;
 import com.gzp1124.log.GLog;
 
 /**
@@ -19,6 +21,7 @@ import com.gzp1124.log.GLog;
  * email:imbagaozp@163.com
  */
 public class Frag2 extends BaseFragment {
+    private CommonTabLayout commonTabLayout;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,6 +34,12 @@ public class Frag2 extends BaseFragment {
             @Override
             public void onClick(View v) {
 //                BottomNavigationFragment.setSelect(2);
+                if (commonTabLayout != null){
+                    commonTabLayout.setCurrentTab(2);
+                    commonTabLayout.showMsg(2,11);
+                }else {
+                    GLog.i("为空");
+                }
             }
         });
         return button;
@@ -50,5 +59,11 @@ public class Frag2 extends BaseFragment {
     protected void requestData() {
         super.requestData();
         GLog.i("frag2 request data");
+    }
+
+    @Override
+    protected void onViewInvisible() {
+        super.onViewInvisible();
+        commonTabLayout = TabLayoutBottomFragmentWithViewPager.getTabLayout();
     }
 }

@@ -36,6 +36,14 @@ public class TabLayoutBottomFragmentWithViewPager extends Fragment {
     private CommonTabLayout mTabLayout;
     private ViewPager mViewPager;
 
+    private static CommonTabLayout tabLayout;
+    /**
+     *提供外部获取TabLayout的方法，方便fragment中进行tab操作
+     */
+    public static CommonTabLayout getTabLayout(){
+        return tabLayout;
+    }
+
     public static void setAllDatas(String[] titles,Fragment[] fragments,int[] iconSelectIds,int[] iconUnselectIds){
         mTitles = titles;
         mFragments = fragments;
@@ -97,6 +105,9 @@ public class TabLayoutBottomFragmentWithViewPager extends Fragment {
         mViewPager.setCurrentItem(0);
         
         setUnReadMsg();
+
+        //TODO 把CommonTabLayout提供出去，供fragment来控制显示未读数，和切换当前选项卡
+        tabLayout = mTabLayout;
     }
 
     /**
