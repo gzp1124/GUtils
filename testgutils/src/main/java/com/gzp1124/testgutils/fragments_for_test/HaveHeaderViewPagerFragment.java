@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.gzp1124.testgutils.R;
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.lib_ui.have_header_viewpager.GHaveHeaderViewpagerFragment;
 import com.gzp1124.lib_ui.have_header_viewpager.HVFragment;
 import com.gzp1124.lib_ui.have_header_viewpager.HVMyListFragment;
@@ -63,5 +63,15 @@ public class HaveHeaderViewPagerFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.test_have_header_viewpager_fragment,null);
+    }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
     }
 }

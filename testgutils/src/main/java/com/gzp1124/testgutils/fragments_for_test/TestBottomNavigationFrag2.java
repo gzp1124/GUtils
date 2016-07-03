@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.gzp1124.testgutils.R;
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.lib_ui.bottomnavigation_2.BottomNavigationFragment2;
 import com.gzp1124.testgutils.linshi.Frag1;
 import com.gzp1124.testgutils.linshi.Frag2;
@@ -42,6 +42,11 @@ public class TestBottomNavigationFrag2 extends BaseFragment {
     public static void setMB(BottomNavigationFragment2.Mode mode,BottomNavigationFragment2.BackgroundStyle backgroundStyle){
         mMode = mode;
         mBackgroundStyle = backgroundStyle;
+    }
+
+    @Override
+    protected void initViews() {
+
     }
 
     @Override

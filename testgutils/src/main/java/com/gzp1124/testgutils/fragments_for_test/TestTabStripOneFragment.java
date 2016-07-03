@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.gzp1124.testgutils.R;
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseFragment;
 
 /**
  * author：高志鹏 on 16/6/24 18:43
@@ -19,5 +19,15 @@ public class TestTabStripOneFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.test_tabstrip_fragment,null);
+    }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
     }
 }

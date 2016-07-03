@@ -9,10 +9,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.gzp1124.gutils.BaseApplication;
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseApplication;
+import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.lib_ui.bottomnavigation_2.BottomNavigationFragment2;
 import com.gzp1124.testgutils.ShowActivity;
 
@@ -71,5 +70,15 @@ public class TestBottomN2 extends BaseFragment {
             }
         });
         return listview;
+    }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
     }
 }

@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.gzp1124.gutils.BaseApplication;
+import com.gzp1124.gutils.base.BaseApplication;
 
 import java.io.Serializable;
 import java.util.Map;

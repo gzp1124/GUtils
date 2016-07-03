@@ -9,13 +9,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.Toast;
 
 import com.gzp1124.testgutils.R;
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.gutils.utils.GViewUtil;
 import com.gzp1124.lib_ui.tab_layout.SlidingTabLayout;
-import com.gzp1124.lib_ui.tab_layout.listener.OnTabSelectListener;
 import com.gzp1124.lib_ui.tab_layout.widget.MsgView;
 
 import java.util.ArrayList;
@@ -31,7 +29,7 @@ public class TestTabLayout1 extends BaseFragment {
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private final String[] mTitles = {
             "热门", "iOS", "Android"
-            , "前端", "后端", "设计", "工具资源"
+            /*, "前端", "后端", "设计", "工具资源"*/
     };
     private MyPagerAdapter mAdapter;
     @Override
@@ -102,6 +100,11 @@ public class TestTabLayout1 extends BaseFragment {
 
         tabLayout_2.showMsg(5, 5);
         tabLayout_2.setMsgMargin(5, 0, 10);
+    }
+
+    @Override
+    protected void initViews() {
+
     }
 
     private class MyPagerAdapter extends FragmentPagerAdapter {

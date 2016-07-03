@@ -5,7 +5,7 @@ import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 
-import com.gzp1124.gutils.BaseApplication;
+import com.gzp1124.gutils.base.BaseApplication;
 
 /**
  * 和设备相关的工具类

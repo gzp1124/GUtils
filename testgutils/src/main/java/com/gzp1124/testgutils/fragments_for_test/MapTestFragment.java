@@ -1,6 +1,6 @@
 package com.gzp1124.testgutils.fragments_for_test;
 
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseFragment;
 
 /**
  * 地图测试fragment
@@ -9,4 +9,13 @@ import com.gzp1124.gutils.BaseFragment;
  */
 public class MapTestFragment extends BaseFragment {
 
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
+    }
 }

@@ -8,11 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.testgutils.R;
 
 
 @SuppressLint("ValidFragment")
-public class SimpleCardFragment extends Fragment {
+public class SimpleCardFragment extends BaseFragment {
     private String mTitle;
 
     public static SimpleCardFragment getInstance(String title) {
@@ -33,5 +34,15 @@ public class SimpleCardFragment extends Fragment {
         card_title_tv.setText(mTitle);
 
         return v;
+    }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
     }
 }

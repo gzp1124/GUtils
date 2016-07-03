@@ -14,7 +14,7 @@ import com.gzp1124.lib_ui.tab_layout.SegmentTabLayout;
 import com.gzp1124.lib_ui.tab_layout.listener.OnTabSelectListener;
 import com.gzp1124.lib_ui.tab_layout.widget.MsgView;
 import com.gzp1124.testgutils.R;
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseFragment;
 
 import java.util.ArrayList;
 
@@ -74,6 +74,11 @@ public class TestTabLayout3  extends BaseFragment {
         if (rtv_3_2 != null) {
             rtv_3_2.setBackgroundColor(Color.parseColor("#6D8FB0"));
         }
+    }
+
+    @Override
+    protected void initViews() {
+
     }
 
     private void tl_3() {

@@ -1,7 +1,6 @@
 package com.gzp1124.testgutils;
 
-import com.gzp1124.testgutils.BuildConfig;
-import com.gzp1124.gutils.BaseApplication;
+import com.gzp1124.gutils.base.BaseApplication;
 import com.gzp1124.log.GLog;
 
 /**

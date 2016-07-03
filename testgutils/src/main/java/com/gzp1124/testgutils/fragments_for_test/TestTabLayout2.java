@@ -1,6 +1,5 @@
 package com.gzp1124.testgutils.fragments_for_test;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,7 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.gzp1124.testgutils.R;
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.gutils.utils.GViewUtil;
 import com.gzp1124.lib_ui.tab_layout.CommonTabLayout;
 import com.gzp1124.lib_ui.tab_layout.listener.CustomTabEntity;
@@ -138,6 +137,11 @@ public class TestTabLayout2  extends BaseFragment {
         if (rtv_2_3 != null) {
             rtv_2_3.setBackgroundColor(Color.parseColor("#6D8FB0"));
         }
+
+    }
+
+    @Override
+    protected void initViews() {
 
     }
 

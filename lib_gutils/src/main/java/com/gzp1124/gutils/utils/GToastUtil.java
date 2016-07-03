@@ -1,6 +1,5 @@
 package com.gzp1124.gutils.utils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -15,10 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.gzp1124.gutils.BaseApplication;
+import com.gzp1124.gutils.base.BaseApplication;
 import com.gzp1124.gutils.R;
-
-import java.lang.ref.WeakReference;
 
 
 /**

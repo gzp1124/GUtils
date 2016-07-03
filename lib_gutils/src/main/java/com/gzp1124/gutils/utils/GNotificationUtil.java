@@ -4,7 +4,7 @@ import android.app.Notification;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 
-import com.gzp1124.gutils.BaseApplication;
+import com.gzp1124.gutils.base.BaseApplication;
 import com.gzp1124.gutils.R;
 
 /**

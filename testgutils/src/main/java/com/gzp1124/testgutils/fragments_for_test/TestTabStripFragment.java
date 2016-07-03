@@ -1,15 +1,11 @@
 package com.gzp1124.testgutils.fragments_for_test;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.gzp1124.testgutils.R;
-import com.gzp1124.gutils.BaseApplication;
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseApplication;
+import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.testgutils.ShowActivity;
 
 /**
@@ -20,7 +16,6 @@ public class TestTabStripFragment extends BaseFragment implements View.OnClickLi
 
     @Override
     protected void initViews() {
-        super.initViews();
         gView.findViewById(R.id.one).setOnClickListener(this);
         gView.findViewById(R.id.more).setOnClickListener(this);
     }

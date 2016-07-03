@@ -8,16 +8,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.gzp1124.gutils.base.BaseFragment;
+import com.gzp1124.log.GLog;
+
 /**
  * author：高志鹏 on 16/6/30 16:36
  * email:imbagaozp@163.com
  */
-public class Frag3 extends Fragment {
+public class Frag3 extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        GLog.i("frag3 oncreate view");
         TextView textView = new TextView(getContext());
         textView.setText("3333333");
         return textView;
+    }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
+    }
+
+    @Override
+    protected void requestData() {
+        super.requestData();
+        GLog.i("frag3 request data");
     }
 }

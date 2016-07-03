@@ -1,4 +1,4 @@
-package com.gzp1124.lib_ui.fragment_tab_host;
+package com.gzp1124.gutils.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Tab的Fragment
+ * 缓存fragment显示的view，下次createview的时候不在创建
  *
  *      在每次创建的时候不会重新创建
  *
  */
-public abstract class FragmentTabHostTabFragment extends Fragment {
+public abstract class CacheViewFragment extends Fragment {
 
     private View mViewContent; // 缓存视图内容
 

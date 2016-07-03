@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.gzp1124.testgutils.R;
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.gutils.utils.GNotificationUtil;
 import com.gzp1124.gutils.utils.GTimeTaskUtil;
 
@@ -34,6 +34,16 @@ public class SendMyBroadFragment extends BaseFragment {
             }
         });
         GTimeTaskUtil.startRequestAlarm(System.currentTimeMillis(),GTimeTaskUtil.DEFAULT_ACTION);
+    }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
     }
 
     @Override

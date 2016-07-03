@@ -1,4 +1,4 @@
-package com.gzp1124.gutils;
+package com.gzp1124.gutils.base;
 
 import android.app.Activity;
 import android.content.Context;

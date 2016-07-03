@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.gutils.print.CaptureActivity;
 
 /**
@@ -35,5 +35,15 @@ public class TestPrintFragment extends BaseFragment{
         TextView textView = new TextView(container.getContext());
         textView.setText("TestPrintFragment");
         return textView;
+    }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
     }
 }

@@ -1,15 +1,11 @@
 package com.gzp1124.testgutils.fragments_for_test;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 
 import com.gzp1124.testgutils.R;
-import com.gzp1124.gutils.BaseFragment;
-import com.gzp1124.gutils.utils.GTimeTaskUtil;
+import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.lib_ui.bottomnavigation.BottomNavigationFragment;
-import com.gzp1124.log.GLog;
 import com.gzp1124.testgutils.linshi.Frag1;
 import com.gzp1124.testgutils.linshi.Frag2;
 import com.gzp1124.testgutils.linshi.Frag3;
@@ -37,6 +33,11 @@ public class TestBottomNavigationFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         BottomNavigationFragment.setAllDatas(mImages,ll,colors,fs);
+    }
+
+    @Override
+    protected void initViews() {
+
     }
 
     @Override

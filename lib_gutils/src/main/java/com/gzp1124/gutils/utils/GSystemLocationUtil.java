@@ -8,7 +8,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.widget.Toast;
 
-import com.gzp1124.gutils.BaseApplication;
+import com.gzp1124.gutils.base.BaseApplication;
 
 import java.io.IOException;
 import java.util.List;

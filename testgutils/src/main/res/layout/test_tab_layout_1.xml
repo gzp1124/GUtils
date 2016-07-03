@@ -25,6 +25,7 @@
                 android:paddingTop="15dp"
                 tl:tl_indicator_gravity="TOP"
                 tl:tl_underline_color="#1A000000"
+                tl:tl_tab_space_equal="true"
                 tl:tl_underline_gravity="TOP"
                 tl:tl_underline_height="1dp"/>
 

@@ -1,18 +1,22 @@
-package com.gzp1124.gutils;
+package com.gzp1124.gutils.base;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 /**
+ * fragment基类，简单流程规划
+ *
+ *  getLayoutId -> initViews -> requestData -> destoryResource
+ *
+ *
  * author：高志鹏 on 16/5/18 10:35
  * email:imbagaozp@163.com
  */
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends LazyLoadFragment {
     protected Activity gActivity;
     protected View gView;
 
@@ -27,22 +31,30 @@ public class BaseFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initViews();
     }
 
-    protected void initViews() {
+    /**
+     * 布局id
+     * @return
+     */
+    protected abstract int getLayoutId();
+
+    /**
+     * 初始化布局
+     */
+    protected abstract void initViews();
+
+    @Override
+    protected void requestData() {
+
+    }
+    @Override
+    protected void destoryResource() {
 
     }
 
-    protected int getLayoutId(){
-        return 0;
-    }
 
 }

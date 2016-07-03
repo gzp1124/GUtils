@@ -3,7 +3,7 @@ package com.gzp1124.gutils.three_platform.social.weixin;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.gzp1124.gutils.BaseApplication;
+import com.gzp1124.gutils.base.BaseApplication;
 import com.gzp1124.gutils.R;
 import com.gzp1124.gutils.three_platform.social.GSocialUtil;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;

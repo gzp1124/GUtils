@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.gzp1124.gutils.BaseApplication;
+import com.gzp1124.gutils.base.BaseApplication;
 import com.gzp1124.testgutils.fragments_for_test.HaveHeaderViewPagerFragment;
 import com.gzp1124.testgutils.fragments_for_test.MapTestFragment;
 import com.gzp1124.testgutils.fragments_for_test.SendMyBroadFragment;
@@ -20,10 +20,17 @@ import com.gzp1124.testgutils.fragments_for_test.TestBeepFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestBottomNavigationFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestFragmentTabHost;
 import com.gzp1124.testgutils.fragments_for_test.TestPrintFragment;
-import com.gzp1124.testgutils.fragments_for_test.TestTabLayoutFragment1;
+import com.gzp1124.testgutils.fragments_for_test.TestTLBottomFrameLayout;
+import com.gzp1124.testgutils.fragments_for_test.TestTLBottomViewpager;
+import com.gzp1124.testgutils.fragments_for_test.TestTLUpFragmentF;
+import com.gzp1124.testgutils.fragments_for_test.TestTLUpFragmentVP2;
+import com.gzp1124.testgutils.fragments_for_test.TestTabLayoutFragment;
+import com.gzp1124.testgutils.fragments_for_test.TestTLUpFragmentVP1;
 import com.gzp1124.testgutils.fragments_for_test.TestTabLayout_ALL;
 import com.gzp1124.testgutils.fragments_for_test.TestTabStripFragment;
 import com.gzp1124.testgutils.fragments_for_test.TimeTaskTestFragment;
+
+import junit.framework.Test;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -45,7 +52,12 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("测试抽取的bottomnavigation",new TestBottomNavigationFragment());
         fragmentMap.put("测试多样式的bottomnavigation",new TestBottomN2());
         fragmentMap.put("tablayout合集，可实现顶部底部导航栏",new TestTabLayout_ALL());
-        fragmentMap.put("tablayout实际使用示例1：顶部导航",new TestTabLayoutFragment1());
+        fragmentMap.put("tablayout,直接使用tablayout实现顶部导航",new TestTabLayoutFragment());
+        fragmentMap.put("tablayout实际使用，快速实现顶部导航，简单样式，关联ViewPager，常用，横向铺满",new TestTLUpFragmentVP1());
+        fragmentMap.put("tablayout实际使用，快速实现顶部导航，样式稍难，关联ViewPager，居中，不铺满",new TestTLUpFragmentVP2());
+        fragmentMap.put("tablayout实际使用，快速实现顶部导航，关联Fragment",new TestTLUpFragmentF());
+        fragmentMap.put("tablayout实际使用：快速实现底部导航,内容用ViewPager",new TestTLBottomViewpager());
+        fragmentMap.put("tablayout实际使用：快速实现底部导航,内容用FrameLayout",new TestTLBottomFrameLayout());
     }
 
     @Override

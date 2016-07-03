@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.gzp1124.testgutils.R;
-import com.gzp1124.gutils.BaseFragment;
+import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.gutils.three_platform.social.GShareInterface;
 import com.gzp1124.gutils.three_platform.social.GSocialUtil;
 import com.gzp1124.gutils.utils.GToastUtil;
@@ -31,6 +31,16 @@ public class SocialTestFragment extends BaseFragment implements View.OnClickList
         super.onViewCreated(view, savedInstanceState);
         view.findViewById(R.id.share).setOnClickListener(this);
         view.findViewById(R.id.share_qq).setOnClickListener(this);
+    }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
     }
 
     GShareInterface.GShareCallBack callBack = new GShareInterface.GShareCallBack() {
