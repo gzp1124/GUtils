@@ -24,6 +24,7 @@ public class TabLayoutUpFragmentF extends Fragment {
     private static String [] mTitles;
 
     private static Fragment[] mFragments;
+    private static ArrayList<Fragment> mFragments2 = new ArrayList<>();
 
     public static void setAllDatas(String[] titls,Fragment[] fragments){
         mTitles = titls;
@@ -47,13 +48,14 @@ public class TabLayoutUpFragmentF extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        SegmentTabLayout tabLayout = (SegmentTabLayout) view.findViewById(R.id.tab_layout);
-        ArrayList<Fragment> fs = new ArrayList<>();
+        mFragments2.clear();
         for (Fragment f :
                 mFragments) {
-            fs.add(f);
+            mFragments2.add(f);
         }
-        tabLayout.setTabData(mTitles, getActivity(), R.id.content_fragment, fs);
-        tab = tabLayout;
+
+        SegmentTabLayout tabLayout_4 = (SegmentTabLayout) view.findViewById(R.id.tl_4);
+
+        tabLayout_4.setTabData(mTitles, getActivity(), R.id.fl_change, mFragments2);
     }
 }

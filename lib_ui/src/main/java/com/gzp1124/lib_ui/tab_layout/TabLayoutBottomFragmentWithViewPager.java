@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import com.gzp1124.lib_ui.R;
 import com.gzp1124.lib_ui.tab_layout.listener.CustomTabEntity;
 import com.gzp1124.lib_ui.tab_layout.listener.OnTabSelectListener;
-import com.gzp1124.lib_ui.tab_layout.listener.TabEntity;
 import com.gzp1124.lib_ui.tab_layout.utils.UnreadMsgUtils;
 import com.gzp1124.lib_ui.tab_layout.widget.MsgView;
 
@@ -161,6 +160,36 @@ public class TabLayoutBottomFragmentWithViewPager extends Fragment {
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
 //            super.destroyItem(container, position, object);
+        }
+    }
+
+    /**
+     * 设置图标的标题，选中和未选中时的状态
+     */
+    class TabEntity implements CustomTabEntity {
+        public String title;
+        public int selectedIcon;
+        public int unSelectedIcon;
+
+        public TabEntity(String title, int selectedIcon, int unSelectedIcon) {
+            this.title = title;
+            this.selectedIcon = selectedIcon;
+            this.unSelectedIcon = unSelectedIcon;
+        }
+
+        @Override
+        public String getTabTitle() {
+            return title;
+        }
+
+        @Override
+        public int getTabSelectedIcon() {
+            return selectedIcon;
+        }
+
+        @Override
+        public int getTabUnselectedIcon() {
+            return unSelectedIcon;
         }
     }
 

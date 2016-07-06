@@ -3,8 +3,6 @@ package com.gzp1124.testgutils.fragments_for_test;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.MotionEvent;
-import android.view.View;
 
 import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.lib_ui.tab_layout.TabLayoutBottomFragmentWithFragment;
