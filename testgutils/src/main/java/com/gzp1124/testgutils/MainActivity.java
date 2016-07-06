@@ -53,11 +53,11 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("测试多样式的bottomnavigation",new TestBottomN2());
         fragmentMap.put("tablayout合集，可实现顶部底部导航栏",new TestTabLayout_ALL());
         fragmentMap.put("tablayout,直接使用tablayout实现顶部导航",new TestTabLayoutFragment());
-        fragmentMap.put("tablayout实际使用，快速实现顶部导航，简单样式，关联ViewPager，常用，横向铺满",new TestTLUpFragmentVP1());
-        fragmentMap.put("tablayout实际使用，快速实现顶部导航，样式稍难，关联ViewPager，居中，不铺满",new TestTLUpFragmentVP2());
-        fragmentMap.put("tablayout实际使用，快速实现顶部导航，关联Fragment",new TestTLUpFragmentF());
-        fragmentMap.put("tablayout实际使用：快速实现底部导航,内容用ViewPager",new TestTLBottomViewpager());
-        fragmentMap.put("tablayout实际使用：快速实现底部导航,内容用FrameLayout",new TestTLBottomFrameLayout());
+        fragmentMap.put("tablayout使用，顶部，关联ViewPager，横向铺满",new TestTLUpFragmentVP1());
+        fragmentMap.put("tablayout使用，顶部，关联ViewPager，居中不铺满",new TestTLUpFragmentVP2());
+        fragmentMap.put("tablayout使用，顶部，关联Fragment",new TestTLUpFragmentF());
+        fragmentMap.put("tablayout使用：底部，关联ViewPager",new TestTLBottomViewpager());
+        fragmentMap.put("tablayout使用：底部，关联FrameLayout",new TestTLBottomFrameLayout());
     }
 
     @Override
