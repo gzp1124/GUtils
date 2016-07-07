@@ -68,7 +68,6 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        GWebUtil.openSysBrowser(this,"http://www.baidu.com");
         ArrayList<String> arrs = new ArrayList<>();
         arrs.addAll(fragmentMap.keySet());
         setListAdapter(new ArrayAdapter<String >(this,android.R.layout.simple_list_item_1,android.R.id.text1,arrs));
