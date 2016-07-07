@@ -1,8 +1,11 @@
 package com.gzp1124.gutils.base;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
+import android.text.TextUtils;
 
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -116,5 +119,24 @@ public class AppManager {
             System.exit(0);
         } catch (Exception e) {
         }
+    }
+
+    /**
+     * 判断指定类名当前是否在顶层
+     * @param className
+     * @return
+     */
+    public static boolean isTopActivity(String className) {
+        ActivityManager mActivityManager = (ActivityManager) BaseApplication.gContext.getSystemService(BaseApplication.gContext.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> tasksInfo = mActivityManager.getRunningTasks(1);
+        if (tasksInfo.size() > 0) {
+            // 应用程序位于堆栈的顶层
+            if (!TextUtils.isEmpty(tasksInfo.get(0).topActivity
+                    .getShortClassName()) && tasksInfo.get(0).topActivity
+                    .getShortClassName().contains(className)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

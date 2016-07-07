@@ -1,6 +1,9 @@
 package com.gzp1124.gutils.utils;
 
 import android.os.Environment;
+import android.text.TextUtils;
+
+import com.google.zxing.common.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,5 +38,19 @@ public class GFileUtil {
 
     public static String getSDCardPath() {
         return Environment.getExternalStorageDirectory().getAbsolutePath();
+    }
+
+    /**
+     * 获取文件扩展名
+     *
+     * @param fileName
+     * @return
+     */
+    public static String getFileFormat(String fileName) {
+        if (TextUtils.isEmpty(fileName))
+            return "";
+
+        int point = fileName.lastIndexOf('.');
+        return fileName.substring(point + 1);
     }
 }

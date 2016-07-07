@@ -157,4 +157,28 @@ public class GDateUtil {
         ret.append(Integer.parseInt(datearr[2]) < 10 ? "0" + Integer.parseInt(datearr[2]) : datearr[2]);
         return ret.toString();
     }
+
+    /**
+     * 获取当前时间为每年第几周
+     *
+     * @return
+     */
+    public static int getWeekOfYear() {
+        return getWeekOfYear(new Date());
+    }
+
+    /**
+     * 获取当前时间为每年第几周
+     *
+     * @param date
+     * @return
+     */
+    public static int getWeekOfYear(Date date) {
+        Calendar c = Calendar.getInstance();
+        c.setFirstDayOfWeek(Calendar.MONDAY);
+        c.setTime(date);
+        int week = c.get(Calendar.WEEK_OF_YEAR) - 1;
+        week = week == 0 ? 52 : week;
+        return week > 0 ? week : 1;
+    }
 }

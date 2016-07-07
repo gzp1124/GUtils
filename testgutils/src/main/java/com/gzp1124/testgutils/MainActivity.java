@@ -11,6 +11,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.gzp1124.gutils.base.BaseApplication;
+import com.gzp1124.gutils.utils.GDeviceUtil;
+import com.gzp1124.gutils.utils.GToastUtil;
+import com.gzp1124.gutils.utils.GWebUtil;
+import com.gzp1124.gutils.widget.BrowserFragment;
 import com.gzp1124.testgutils.fragments_for_test.HaveHeaderViewPagerFragment;
 import com.gzp1124.testgutils.fragments_for_test.MapTestFragment;
 import com.gzp1124.testgutils.fragments_for_test.SendMyBroadFragment;
@@ -58,11 +62,13 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("tablayout使用，顶部，关联Fragment",new TestTLUpFragmentF());
         fragmentMap.put("tablayout使用：底部，关联ViewPager",new TestTLBottomViewpager());
         fragmentMap.put("tablayout使用：底部，关联FrameLayout",new TestTLBottomFrameLayout());
+        fragmentMap.put("测试内置浏览器",new BrowserFragment());
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        GWebUtil.openSysBrowser(this,"http://www.baidu.com");
         ArrayList<String> arrs = new ArrayList<>();
         arrs.addAll(fragmentMap.keySet());
         setListAdapter(new ArrayAdapter<String >(this,android.R.layout.simple_list_item_1,android.R.id.text1,arrs));
