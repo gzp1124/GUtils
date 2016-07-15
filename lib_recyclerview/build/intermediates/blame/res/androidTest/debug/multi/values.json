@@ -1,0 +1,45 @@
+[
+    {
+        "outputFile": "/Users/gzp1124/as_workspace/GUtils/lib_recyclerview/build/intermediates/res/merged/androidTest/debug/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 1346,
+                    "endColumn": 58,
+                    "endOffset": 1400
+                },
+                "from": {
+                    "file": "/Users/gzp1124/as_workspace/GUtils/lib_recyclerview/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 1346,
+                        "endColumn": 58,
+                        "endOffset": 1400
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 1405,
+                    "endColumn": 62,
+                    "endOffset": 1463
+                },
+                "from": {
+                    "file": "/Users/gzp1124/as_workspace/GUtils/lib_recyclerview/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 1405,
+                        "endColumn": 62,
+                        "endOffset": 1463
+                    }
+                }
+            }
+        ]
+    }
+]

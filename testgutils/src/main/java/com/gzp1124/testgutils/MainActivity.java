@@ -23,6 +23,7 @@ import com.gzp1124.testgutils.fragments_for_test.TestBottomN2;
 import com.gzp1124.testgutils.fragments_for_test.TestBeepFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestBottomNavigationFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestFragmentTabHost;
+import com.gzp1124.testgutils.fragments_for_test.TestLibRecyclerViewFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestPrintFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestTLBottomFrameLayout;
 import com.gzp1124.testgutils.fragments_for_test.TestTLBottomViewpager;
@@ -63,6 +64,7 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("tablayout使用：底部，关联ViewPager",new TestTLBottomViewpager());
         fragmentMap.put("tablayout使用：底部，关联FrameLayout",new TestTLBottomFrameLayout());
         fragmentMap.put("测试内置浏览器",new BrowserFragment());
+        fragmentMap.put("测试lib_recyclerview",new TestLibRecyclerViewFragment());
     }
 
     @Override
