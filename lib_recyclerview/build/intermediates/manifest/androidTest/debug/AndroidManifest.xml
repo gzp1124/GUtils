@@ -15,10 +15,6 @@
 
     <application>
         <uses-library android:name="android.test.runner" />
-
-        <activity
-            android:name="android.support.v7.widget.TestActivity"
-            android:label="RecyclerViewTestActivity" />
     </application>
 
 </manifest>

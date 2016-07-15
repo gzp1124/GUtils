@@ -1,1 +1,1 @@
-include ':lib_gutils', ':testgutils', ':lib_log', ':lib_ui', ':lib_recyclerview'
+include ':lib_gutils', ':testgutils', ':lib_log', ':lib_ui', ':lib_recyclerview', ':lib_recyclerview_adapter_helper'

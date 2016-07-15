@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/lib_gutils/lib_gutils.iml" filepath="$PROJECT_DIR$/lib_gutils/lib_gutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_log/lib_log.iml" filepath="$PROJECT_DIR$/lib_log/lib_log.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_recyclerview/lib_recyclerview.iml" filepath="$PROJECT_DIR$/lib_recyclerview/lib_recyclerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_recyclerview_adapter_helper/lib_recyclerview_adapter_helper.iml" filepath="$PROJECT_DIR$/lib_recyclerview_adapter_helper/lib_recyclerview_adapter_helper.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_ui/lib_ui.iml" filepath="$PROJECT_DIR$/lib_ui/lib_ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/testgutils/testgutils.iml" filepath="$PROJECT_DIR$/testgutils/testgutils.iml" />
     </modules>

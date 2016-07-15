@@ -19,6 +19,7 @@ import com.gzp1124.testgutils.test_recyclerview.Fragment4;
  * email:imbagaozp@163.com
  */
 public class TestLibRecyclerViewFragment extends BaseFragment{
+    //Fragment1  Fragment2  Fragment3  Fragment4类除了布局不同，其他都相同
     Fragment[] fragments = new Fragment[]{new Fragment1(),new Fragment2(),new Fragment3(),new Fragment4()};
     String [] titles = {"list","grid","staggered_grid","spannable_grid"};
     @Override
