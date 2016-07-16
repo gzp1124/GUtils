@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.lucasr.twowayview.widget.TwoWayView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/TwoWayView"
+        app:twowayview_layoutManager="ListLayoutManager"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center">
+
+        <TextView
+            android:id="@+id/position"
+            style="@style/StateText"/>
+
+        <TextView
+            android:id="@+id/count"
+            style="@style/StateText"/>
+
+        <TextView
+            android:id="@+id/state"
+            style="@style/StateText"/>
+
+    </LinearLayout>
+
+</FrameLayout>

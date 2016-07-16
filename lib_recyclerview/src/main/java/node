@@ -1,0 +1,4 @@
+对recyclerview的一个封装
+提供了常用的各种方法
+
+可结合 lib_recyclerview_adapter_helper 一起使用

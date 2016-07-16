@@ -33,6 +33,4 @@ public class QuickAdapter extends BaseQuickAdapter<Status> {
 
 //        Glide.with(mContext).load(item.getUserAvatar()).crossFade().placeholder(R.mipmap.def_head).transform(new GlideCircleTransform(mContext)).into((ImageView) helper.getView(R.id.tweetAvatar));
     }
-
-
 }
