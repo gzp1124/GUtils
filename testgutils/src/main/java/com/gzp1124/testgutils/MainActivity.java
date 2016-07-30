@@ -25,6 +25,7 @@ import com.gzp1124.testgutils.fragments_for_test.TestBottomNavigationFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestFragmentTabHost;
 import com.gzp1124.testgutils.fragments_for_test.TestLibRecyclerViewAdapterHelper;
 import com.gzp1124.testgutils.fragments_for_test.TestLibRecyclerViewFragment;
+import com.gzp1124.testgutils.fragments_for_test.TestLibVedioFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestMyUseRecyclerView;
 import com.gzp1124.testgutils.fragments_for_test.TestPrintFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestTLBottomFrameLayout;
@@ -69,6 +70,7 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("测试lib_recyclerview",new TestLibRecyclerViewFragment());
         fragmentMap.put("测试lib_recyclerview_adapter_helper",new TestLibRecyclerViewAdapterHelper());
         fragmentMap.put("测试综合使用的recyclerview",new TestMyUseRecyclerView());
+        fragmentMap.put("测试视频播放",new TestLibVedioFragment());
     }
 
     @Override

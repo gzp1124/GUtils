@@ -14,6 +14,8 @@
             <option value="$PROJECT_DIR$/lib_recyclerview" />
             <option value="$PROJECT_DIR$/lib_recyclerview_adapter_helper" />
             <option value="$PROJECT_DIR$/lib_ui" />
+            <option value="$PROJECT_DIR$/lib_vedio_giraffeplayer" />
+            <option value="$PROJECT_DIR$/lib_vedio_ijkplayer-java" />
             <option value="$PROJECT_DIR$/testgutils" />
           </set>
         </option>
@@ -25,6 +27,8 @@
             <option value="$PROJECT_DIR$/lib_recyclerview" />
             <option value="$PROJECT_DIR$/lib_recyclerview_adapter_helper" />
             <option value="$PROJECT_DIR$/lib_ui" />
+            <option value="$PROJECT_DIR$/lib_vedio_giraffeplayer" />
+            <option value="$PROJECT_DIR$/lib_vedio_ijkplayer-java" />
             <option value="$PROJECT_DIR$/testgutils" />
           </set>
         </option>
