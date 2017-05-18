@@ -32,13 +32,27 @@ public class TestBottomTabViewFragment extends BaseFragment {
     }
 
     protected void initViews(){}
+
+    private FragmentPagerAdapter getAdapter(){
+        return new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return getFragments().get(position);
+            }
+            @Override
+            public int getCount() {
+                return getFragments().size();
+            }
+        };
+    }
+
     @Override
     protected void initViews(View view) {
         final ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         final BottomTabView bottomTabView = (BottomTabView) view.findViewById(R.id.bottomTabView);
 
         bottomTabView.setTabItemViews(getTabItemViews(),getCenterView());
-        viewPager.setAdapter(adapter);
+        viewPager.setAdapter(getAdapter());
 
         bottomTabView.setOnTabItemSelectListener(new BottomTabView.OnTabItemSelectListener() {
             @Override
@@ -57,7 +71,7 @@ public class TestBottomTabViewFragment extends BaseFragment {
             public void onPageScrollStateChanged(int state) {}
         });
     }
-    
+
     protected List<BottomTabView.TabItemView>  getTabItemViews(){
         List<BottomTabView.TabItemView> tabItemViews = new ArrayList<>();
         tabItemViews.add(new BottomTabView.TabItemView(getContext(), "标题1", R.color.colorPrimary,
@@ -97,16 +111,5 @@ public class TestBottomTabViewFragment extends BaseFragment {
         });
         return centerView;
     }
-
-    FragmentPagerAdapter adapter = new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
-        @Override
-        public Fragment getItem(int position) {
-            return getFragments().get(position);
-        }
-        @Override
-        public int getCount() {
-            return getFragments().size();
-        }
-    };
 
 }
