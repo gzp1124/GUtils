@@ -5,12 +5,14 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.gzp1124.gutils.base.BaseFragment;
 import com.gzp1124.log.GLog;
+import com.gzp1124.testgutils.ShowActivity;
 
 import java.util.ArrayList;
 
@@ -44,6 +46,12 @@ public class Frag1 extends BaseFragment {
         }
         ListView listView = new ListView(getContext());
         listView.setAdapter(new ArrayAdapter<String >(getActivity(),android.R.layout.simple_expandable_list_item_1,strings));
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ((ShowActivity)getActivity()).anim(view);
+            }
+        });
         return listView;
     }
 

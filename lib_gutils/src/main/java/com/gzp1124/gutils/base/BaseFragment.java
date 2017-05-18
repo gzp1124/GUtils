@@ -33,6 +33,7 @@ public abstract class BaseFragment extends LazyLoadFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initViews(view);
         initViews();
     }
 
@@ -46,6 +47,9 @@ public abstract class BaseFragment extends LazyLoadFragment {
      * 初始化布局
      */
     protected abstract void initViews();
+    protected void initViews(View view){
+
+    }
 
     @Override
     protected void requestData() {

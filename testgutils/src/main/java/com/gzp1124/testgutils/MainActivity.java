@@ -15,6 +15,7 @@ import com.gzp1124.gutils.utils.GDeviceUtil;
 import com.gzp1124.gutils.utils.GToastUtil;
 import com.gzp1124.gutils.utils.GWebUtil;
 import com.gzp1124.gutils.widget.BrowserFragment;
+import com.gzp1124.testgutils.fragments_for_test.GetWifiInfoFragment;
 import com.gzp1124.testgutils.fragments_for_test.HaveHeaderViewPagerFragment;
 import com.gzp1124.testgutils.fragments_for_test.MapTestFragment;
 import com.gzp1124.testgutils.fragments_for_test.SendMyBroadFragment;
@@ -22,6 +23,7 @@ import com.gzp1124.testgutils.fragments_for_test.SocialTestFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestBottomN2;
 import com.gzp1124.testgutils.fragments_for_test.TestBeepFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestBottomNavigationFragment;
+import com.gzp1124.testgutils.fragments_for_test.TestBottomTabViewFragment;
 import com.gzp1124.testgutils.fragments_for_test.TestFragmentTabHost;
 import com.gzp1124.testgutils.fragments_for_test.TestLibRecyclerViewAdapterHelper;
 import com.gzp1124.testgutils.fragments_for_test.TestLibRecyclerViewFragment;
@@ -71,6 +73,8 @@ public class MainActivity extends ListActivity {
         fragmentMap.put("测试lib_recyclerview_adapter_helper",new TestLibRecyclerViewAdapterHelper());
         fragmentMap.put("测试综合使用的recyclerview",new TestMyUseRecyclerView());
         fragmentMap.put("测试视频播放",new TestLibVedioFragment());
+        fragmentMap.put("获取当前连接的WiFi信息",new GetWifiInfoFragment());
+        fragmentMap.put("测试bottom_tabview",new TestBottomTabViewFragment());
     }
 
     @Override

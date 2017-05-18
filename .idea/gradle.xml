@@ -19,19 +19,7 @@
             <option value="$PROJECT_DIR$/testgutils" />
           </set>
         </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/lib_gutils" />
-            <option value="$PROJECT_DIR$/lib_log" />
-            <option value="$PROJECT_DIR$/lib_recyclerview" />
-            <option value="$PROJECT_DIR$/lib_recyclerview_adapter_helper" />
-            <option value="$PROJECT_DIR$/lib_ui" />
-            <option value="$PROJECT_DIR$/lib_vedio_giraffeplayer" />
-            <option value="$PROJECT_DIR$/lib_vedio_ijkplayer-java" />
-            <option value="$PROJECT_DIR$/testgutils" />
-          </set>
-        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 
 import com.gzp1124.testgutils.R;
 import com.gzp1124.gutils.three_platform.social.GSocialUtil;
@@ -17,6 +18,8 @@ import com.gzp1124.gutils.utils.GToastUtil;
  */
 public class ShowActivity extends FragmentActivity {
 
+    private View bb;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +29,20 @@ public class ShowActivity extends FragmentActivity {
         FragmentTransaction tx = fm.beginTransaction();
         tx.add(R.id.content_fragment,BaseApp.showFragment ,"showFragment");
         tx.commit();
+        bb = findViewById(R.id.testbtn);
 
 //        GSocialUtil.getShareInstance().regWX();
     }
+
+    public void anim(View view){
+        GoodsAnimUtil.setOnEndAnimListener(new GoodsAnimUtil.OnEndAnimListener() {
+            @Override
+            public void onEndAnim() {
+
+            }
+        });
+        GoodsAnimUtil.setAnim(this,view,bb);
+    }
+
+
 }
